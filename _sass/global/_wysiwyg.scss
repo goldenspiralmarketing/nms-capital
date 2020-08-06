@@ -1,0 +1,227 @@
+* {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: 1px 1px 1px transparentize($black, 0.996);
+}
+
+body {
+	font-family: $font-primary;
+	font-size: 16px;
+	color: $color-primary;
+	font-weight: normal;
+	line-height: 1.4;
+}
+
+/**
+* HEADINGS & SUB-HEADINGS ----------------------------------------------
+**/
+.header-base {
+	font-family: $font-secondary;
+	color: $color-secondary;
+	font-weight: bold;
+	line-height: 1.4;
+	margin-top:1em;
+	margin-bottom:0.5em;
+	&:first-child {
+		margin-top:0; // keep first item flush with top of parent
+	}
+	.s1 + &, .s2 + &, .s3 + &, .s4 + & {
+		margin-top:0.2em; // shrink top margin for headers that come immediately after a subheader
+	}
+	a {
+		color:inherit !important;
+	}
+}
+
+// apply base header styles
+h1, h2, h3, h4, h5 {
+	@extend .header-base !optional;
+}
+h1, h2 {
+	line-height:1.1;
+}
+// apply header class styles after base, to override
+.h1, .h2, .h3, .h4, .h5 {
+	@extend .header-base !optional;
+}
+.h1, .h2 {
+	line-height:1.1;
+}
+
+// subheaders
+.s1, .s2, .s3, .s4, .s5 {
+	font-family:$font-primary;
+	color: $color-primary;
+	line-height:1.3;
+	margin:0.4em 0 1em;
+	.h1 + &, .h2 + &, .h3 + &, .h4 + &, .h5 + & {
+		margin-bottom:1.8em; // add margin for subheader under header
+	}
+}
+
+/*
+	Header Size List Generator
+	enter the size list (with unit type) and the desired element name,
+	and get a numbered list of headers with font sizes
+*/
+@include header-sizes('h', (38px, 28px, 22px, 18px));
+@include header-sizes('.h', (38px, 28px, 22px, 18px));
+@include header-sizes('.s', (22px, 18px, 16px));
+
+@media screen and (min-width:768px){
+	@include header-sizes('h', (58px, 44px, 36px, 26px, 18px));
+	@include header-sizes('.h', (58px, 44px, 36px, 26px, 18px));
+	@include header-sizes('.s', (30px, 26px, 22px));
+}
+
+a {
+	&.h1, &.h2, &.h3, &.h4, &.h5,
+	&.s1, &.s2, &.s3, &.s4, &.s5, &.s6 {
+		display: inline-block; // no blocky for headers inside anchors
+	}
+}
+
+
+// // h1 - h5 Headers
+// @for $i from 1 through 6 {
+// 	h#{$i}{
+// 		@extend .header-base !optional;
+// 		@include get-type-styles("h#{$i}");
+// 	}
+// }
+//
+// // .h1 - .h5 Header classes
+// @for $i from 1 through 6 {
+// 	.h#{$i}{
+// 		@extend .header-base !optional;
+// 		@include get-type-styles("h#{$i}");
+// 	}
+// }
+//
+// // Subheaders
+// .s1, .s2, .s3, .s4, .s5 {
+// 	@include get-type-styles("subheaders");
+// 	.h1 + &, .h2 + &, .h3 + &, .h4 + &, .h5 + & {
+// 		margin-bottom:1.8em; // add margin for subheader under header
+// 	}
+// }
+//
+// // .s1 - .s5 Header classes
+// @for $i from 1 through 5 {
+// 	.s#{$i}{
+// 		@extend .header-base !optional;
+// 		@include get-type-styles("s#{$i}");
+// 	}
+// }
+
+
+/**
+ * BODY TEXT ----------------------------------------------
+**/
+a {
+	color:$color-secondary;
+	transition: all 0.3s ease;
+	&:hover {
+		opacity:0.8;
+	}
+}
+
+p {
+	margin-bottom: 1rem;
+}
+
+.small {
+	font-size: 0.875rem;
+}
+
+.large {
+	font-size: 1.25rem;
+}
+
+.emphasis {
+	font-family:$font-primary;
+	font-weight:bold;
+	font-size: 1.2em;
+	color:$color-secondary;
+}
+
+blockquote {
+	font-family: $font-secondary;
+	font-size: 1.2em;
+	font-weight: bold;
+	border-radius: 0.5em;
+	margin: 2em 1em;
+	padding:1em 2em;
+}
+
+strong,
+b {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+
+.mce-content-body,
+.wysiwyg {
+	ul, ol {
+		margin-bottom:1.6em;
+		padding-left:1.6em;
+		> li {
+			margin-bottom:0.5em;
+		}
+	}
+}
+
+
+hr {
+	border-color: darken($gray-100, 9.75%);
+	border-width: 1px;
+	border-style: solid;
+	border-bottom: none;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.mce-content-body,
+.wysiwyg {
+	.video-link {
+		position: relative;
+		display: inline-block;
+		float: left;
+		img {
+			margin: 0.5em 1em 0.5em 0 !important;
+			border: solid 1px $color-secondary;
+		}
+	}
+}
+
+.alignleft {
+	float: left;
+	margin: 0.5em 1em 0.5em 0;
+}
+.alignright {
+	float: right;
+	margin: 0.5em 0 0.5em 1em;
+}
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mce-content-body {
+	padding: 1rem !important;
+}
+body.wp-autoresize {
+	padding: 1rem !important;
+}
+
+.text-dynamic {
+	@media screen and (min-width: $mobile-nav-max-width) and (max-width: #{$max-column-width}px){
+
+	}
+}

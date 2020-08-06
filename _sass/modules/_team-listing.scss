@@ -1,0 +1,220 @@
+$team-listing-module-column-size: $grid-columns;
+
+.team-listing-module {
+
+	// .gs-module-row {
+		// margin-left: $grid-gutter-width / -2;
+		// margin-right: $grid-gutter-width / -2;
+
+		.team-listing__single {
+			display: block;
+			flex-wrap: wrap;
+			margin-bottom: 2em;
+			// max-width: cols-to-width-percent($team-listing-module-column-size, $grid-columns) * 1%;
+			// width: 100%;
+			// flex-basis: cols-to-width-percent($team-listing-module-column-size, $grid-columns) * 1%;
+			// margin-left: auto;
+			// margin-right: auto;
+
+			@media screen and (min-width: 768px) {
+				display: flex;
+				flex-wrap: nowrap;
+				flex-direction: column-reverse;
+			}
+
+			@media screen and (min-width: 992px) {
+				flex-direction: row;
+			}
+
+			> * {
+				padding-left: 0;
+				padding-right: 0;
+
+				@media screen and (min-width: 992px) {
+					&:last-child {
+						padding-left: cols-to-width-percent(2, $team-listing-module-column-size) * 1%;
+						padding-right: 0;
+					}
+				}
+
+				// @media screen and (min-width: #{$max-column-width + cols-to-width-pixels(0.5, $grid-columns)}px) {
+				// 	&:first-child {
+				// 		padding-right: cols-to-width-percent(1, $team-listing-module-column-size) * 1%;
+				// 	}
+				//
+				// 	&:last-child {
+				// 		padding-left: cols-to-width-percent(1, $team-listing-module-column-size) * 1%;
+				// 	}
+				// }
+			}
+		}
+
+		.team-listing-content {
+			// max-width: cols-to-width-percent($team-listing-module-column-size, $grid-columns) * 1%;
+			// width: 100%;
+			// flex-basis: cols-to-width-percent($team-listing-module-column-size, $grid-columns) * 1%;
+			@include width($team-listing-module-column-size, $grid-columns)
+
+
+			@media screen and (min-width: 992px) {
+				// max-width: cols-to-width-percent($grid-columns / 2, $team-listing-module-column-size) * 1%;
+				// flex-basis: cols-to-width-percent($grid-columns / 2, $team-listing-module-column-size) * 1%;
+				@include width($team-listing-module-column-size / 2, $grid-columns)
+			}
+		}
+
+		.team-listing-image-container {
+			padding-left: 0;
+			padding-right: 0;
+			max-width: none;
+			flex: 1;
+			// max-width: cols-to-width-percent($team-listing-module-column-size, $grid-columns) * 1%;
+			// width: 100%;
+			// flex-basis: cols-to-width-percent($team-listing-module-column-size, $grid-columns) * 1%;
+			//
+			// @media screen and (min-width: 992px) {
+			// 	max-width: cols-to-width-percent(12, $team-listing-module-column-size) * 1%;
+			// 	flex-basis: cols-to-width-percent(12, $team-listing-module-column-size) * 1%;
+			// }
+
+			> img {
+				width: 100%;
+			}
+		}
+
+	// }
+
+	&.reverse {
+		.team-listing__single {
+			@media screen and (min-width: 768px) {
+				flex-direction: column;
+			}
+
+			@media screen and (min-width: 992px) {
+				flex-direction: row-reverse;
+			}
+
+			> * {
+				@media screen and (min-width: 992px) {
+					&:last-child {
+						padding-left: 0;
+						padding-right: cols-to-width-percent(2, $team-listing-module-column-size) * 1%;
+					}
+				}
+
+				// @media screen and (min-width: #{$max-column-width + cols-to-width-pixels(0.5, $grid-columns)}px) {
+				// 	&:first-child {
+				// 		padding-left: cols-to-width-percent(1, $team-listing-module-column-size) * 1%;
+				// 	}
+				//
+				// 	&:last-child {
+				// 		padding-right: cols-to-width-percent(1, $team-listing-module-column-size) * 1%;
+				// 	}
+				// }
+			}
+		}
+	}
+
+	&.full-bleed {
+		flex-direction: column;
+		padding-left: 0;
+		padding-right: 0;
+
+		.gs-module-container {
+			// flex: 1;
+			// display: flex;
+			// max-width: none;
+			// padding-left: cols-to-width-percent(1, $grid-columns) * 1%;
+			// padding-right: 0;
+		}
+
+		// .gs-module-row {
+		// 	flex: 1;
+		// 	display: flex;
+		// }
+
+		.team-listing__single {
+			max-width: none;
+			flex-basis: 100%;
+
+			@media screen and (min-width: 768px) {
+				flex-direction: row;
+			}
+		}
+
+		.team-listing-content {
+
+			display: flex;
+			align-items: center;
+			padding-top: #{$module-v-padding}px;
+			padding-bottom: #{$module-v-padding}px;
+
+			padding-left: 0;
+			padding-right: 0;
+
+			@media screen and (min-width: 768px) {
+				max-width: cols-to-width-percent($grid-columns * 0.65, $grid-columns) * 1%;
+				flex-basis: cols-to-width-percent($grid-columns * 0.65, $grid-columns) * 1%;
+			}
+
+			@media screen and (min-width: 1200px) {
+				max-width: cols-to-width-percent($grid-columns / 2, $grid-columns) * 1%;
+				flex-basis: cols-to-width-percent($grid-columns / 2, $grid-columns) * 1%;
+			}
+		}
+
+		.team-listing-image-container {
+			@media screen and (min-width: 768px) {
+				padding-left: cols-to-width-percent(2, $team-listing-module-column-size) * 1%;
+				padding-right: 0;
+			}
+		// 	padding-left: 0;
+		// 	padding-right: 0;
+		// 	// max-width: cols-to-width-percent(12, $grid-columns) * 1%;
+		// 	// flex-basis: cols-to-width-percent(12, $grid-columns) * 1%;
+		// 	max-width: none;
+		// 	flex: 1;
+		}
+
+		.team-listing-image {
+			padding: 0;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 100%;
+			position: relative;
+
+
+			@media screen and (min-width: 768px) {
+				min-height: 100%;
+				height: 100%; // NOTE: required for Edge
+			}
+		}
+
+		&.reverse {
+			.gs-module-container {
+				padding-left: 0;
+				padding-right: cols-to-width-percent(1, $grid-columns) * 1%;
+			}
+
+			.team-listing__single {
+				@media screen and (min-width: 768px) {
+					flex-direction: row-reverse;
+				}
+			}
+
+			.team-listing-content {
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			.team-listing-image-container {
+				@media screen and (min-width: 768px) {
+					padding-left: 0;
+					padding-right: cols-to-width-percent(2, $team-listing-module-column-size) * 1%;
+				}
+			}
+		}
+	}
+
+}

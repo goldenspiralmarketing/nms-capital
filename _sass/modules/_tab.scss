@@ -1,0 +1,121 @@
+$tab-module-column-size: $grid-columns;
+
+.tab-module {
+
+	.gs-module-container {
+		position: relative;
+
+		// &:before {
+		// 	content: "";
+		// 	position: absolute;
+		// 	max-width: cols-to-width-percent(8, 24) * 1%;
+		// 	width: 100%;
+		// 	top: 0;
+		// 	bottom: 0;
+		// 	left: 0;
+		// 	background-image: $background-gradient-gray;
+		// 	z-index: -1;
+		// 	display: none;
+		//
+		// 	@media screen and (min-width: 768px) {
+		// 		display: block;
+		// 	}
+		// }
+	}
+
+	// .gs-module-column {
+	// 	flex-basis: $tab-module-column-size / $grid-columns * 100%;
+	// 	max-width: grid($tab-module-column-size, $grid-columns) * 1%;
+	// 	width: 100%;
+	// 	margin-left: auto;
+	// 	margin-right: auto;
+	// }
+
+	.tabs {
+		display: block;
+		flex-wrap: wrap;
+		max-width: 100%;
+
+		@media screen and (min-width: 768px) {
+			display: flex;
+			flex-wrap: nowrap;
+		}
+
+		.tab-control-container {
+			// flex: 0 0 cols-to-width-percent($grid-columns / 4, $grid-columns) * 1%;
+			flex: 0 1 0%;
+			// padding-left: cols-to-width-percent(0.5, $grid-columns) * 1%;
+			padding-left: 0;
+			padding-right: cols-to-width-percent(0.5, $grid-columns) * 1%;
+			display: none;
+			padding-top: 1.2rem;
+			padding-bottom: 1.2rem;
+
+			@media screen and (min-width: 768px) {
+				display: flex;
+			}
+
+			.tab-control {
+				margin: 0;
+				padding: 0;
+				margin-left: auto;
+				list-style: none;
+
+				> li {
+
+					> a {
+						display: block;
+						color: $gray-800;
+						text-decoration: none;
+						padding: 1rem 1.4rem;
+						min-width: 230px;
+						margin-bottom: 0;
+					}
+
+					&.active {
+						@extend .box-shadow !optional;
+
+						background-color: $white;
+						border-radius: 4px;
+
+						> a {
+							color: $color-secondary;
+						}
+					}
+
+					+ li {
+						border-top: solid 1px darken($gray-100, 9.75%);
+					}
+				}
+			}
+		}
+
+		.tab-content {
+			flex: 0 1 cols-to-width-percent(($grid-columns / 5) * 4, $grid-columns) * 1%;
+			padding-left: cols-to-width-percent(0.5, $grid-columns) * 1%;
+			// padding-right: cols-to-width-percent(0.5, $grid-columns) * 1%;
+			padding-right: 0;
+			padding-top: 1.8rem;
+			padding-bottom: 1.8rem;
+
+			// @media screen and (min-width: 768px) {
+			// 	padding-right: 0;
+			// }
+
+			.tab-panel {
+				display: block;
+				margin-bottom: 2rem;
+
+				@media screen and (min-width: 768px) {
+					display: none;
+					margin-bottom: 0;
+				}
+
+				&.active {
+					display: block;
+				}
+			}
+		}
+	}
+
+}

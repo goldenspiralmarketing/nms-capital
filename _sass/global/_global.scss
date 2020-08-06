@@ -1,0 +1,404 @@
+// handle FOUT (Flash Of Unwanted Text) - See TypeKit's instructions: https://helpx.adobe.com/typekit/using/font-events.html
+html {
+	// &.wf-inactive,
+	&.wf-loading {
+		h1, .h1,
+		h2, .h2,
+		h3, .h3,
+		h4, .h4,
+		h5, .h5,
+		a, p, span {
+			transition: all 0.3s ease;
+			// opacity: 0 !important;
+		}
+	}
+	&.wf-active {
+		h1, .h1,
+		h2, .h2,
+		h3, .h3,
+		h4, .h4,
+		h5, .h5,
+		a, p, span {
+			transition: all 0.3s ease;
+			opacity: 1;
+		}
+	}
+	&.slideout-open, &.mobile-menu-open {
+		.iOS-device {
+			position: fixed;
+			width: 100%;
+		}
+	}
+}
+
+
+
+body {
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	.searching & {
+		overflow: hidden;
+	}
+}
+
+main {
+	position: relative;
+}
+
+.gs-module {
+	padding-top: $module-v-padding * 1em;
+	padding-bottom: $module-v-padding * 1em;
+
+	// padding-left: $grid-gutter-width / 2;
+	// padding-right: $grid-gutter-width / 2;
+
+	@media screen and (min-width: 992px) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.gs-module-container,
+.gs-container {
+	width: 100%;
+	max-width: none;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: cols-to-width-percent(1, $grid-columns) * 1%;
+	padding-right: cols-to-width-percent(1, $grid-columns) * 1%;
+
+	@media screen and (min-width: #{$max-column-width + cols-to-width-pixels(2, $grid-columns)}px) {
+		padding-left: 0;
+		padding-right: 0;
+		max-width: $max-column-width * 1px;
+	}
+
+	// @media screen and (max-width: $max-column-width + 6em){
+	// 	padding-left:3em;
+	// 	padding-right:3em;
+	// }
+	// @media screen and (max-width: 1200px){
+	// 	padding-left:2em;
+	// 	padding-right:2em;
+	// }
+	// @media screen and (max-width: 550px){
+	// 	padding-left:1em;
+	// 	padding-right:1em;
+	// }
+
+	// @media screen and (min-width: 768px) {
+	// 	padding-left: cols-to-width-percent(1, $grid-columns) * 1%;
+	// 	padding-right: cols-to-width-percent(1, $grid-columns) * 1%;
+	// }
+}
+
+// .gs-module-row {
+// 	margin-left: $grid-gutter-width / -2;
+// 	margin-right: $grid-gutter-width / -2;
+// }
+
+@keyframes ellipses {
+	0% {
+		content: "";
+		text-align: left;
+	}
+	20% {
+		content: ".";
+		text-align: left;
+	}
+	40% {
+		content: "..";
+		text-align: left;
+	}
+	60% {
+		content: "...";
+		text-align: right;
+	}
+	80% {
+		content: "..";
+		text-align: right;
+	}
+	100% {
+		content: ".";
+		text-align: right;
+	}
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: transparentize($gray-800, 0.46);
+	z-index: 98;
+	display: none;
+
+	.menu-open & {
+		// display: block;
+	}
+
+	.searching & {
+		display: block;
+		background-color: transparentize($gray-800, 0.86);
+
+		&:after {
+			content: "";
+			animation: ellipses 2.0s infinite;
+			display: inline-block;
+			height: 20px;
+			width: 14.8px;
+			text-align: left;
+		}
+
+	}
+}
+
+
+
+.wrapper {
+	// overflow-x: hidden;
+	// this is breaking the load in transform:translate animation
+}
+
+img[src=""]{
+	opacity: 0;
+}
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+
+svg {
+	max-width: 100%;
+	height: auto;
+	max-height: 100%;
+
+	.nodeLineOutline {
+		stroke: currentColor;
+	}
+}
+
+.vertical-center {
+	display: flex;
+	align-items: center;
+}
+
+.box-shadow {
+	box-shadow: 0 2px 4px 0 transparentize($gray-800, 0.65);
+}
+
+.rounded-corners {
+	border-radius: 4px;
+}
+
+
+
+.container {
+	max-width: #{$max-column-width}px;
+	width: 100%;
+	position: relative;
+}
+@media screen and (max-width:1450px){
+	.container {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+}
+@media screen and (max-width:550px){
+	.container {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+}
+
+
+
+.absolute-fill {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	&a {
+		z-index: 100;
+	}
+}
+
+
+
+
+
+
+.slick-dotted.slick-slider {
+	margin-bottom: 0;
+}
+.slick-dots {
+	max-width: cols-to-width-percent(18, 20) * 1%;
+	bottom: 4rem;
+	text-align: right;
+	left: 50%;
+	transform: translateX(-50%);
+
+	li {
+		button:before {
+			content: "";
+			opacity: 0.46;
+			border: solid 2px $gray-800;
+			background-color: transparent;
+			border-radius: 50%;
+			transition: opacity 0.3s ease-in, background-color 0.3s ease-in;
+		}
+
+		&.slick-active button:before {
+			opacity: 1;
+			background-color: $gray-800;
+		}
+	}
+
+	.bg-gradient-secondary & {
+		li {
+			button:before {
+				border-color: $white;
+			}
+
+			&.slick-active button:before {
+				background-color: $white;
+			}
+		}
+	}
+}
+
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+
+	.pagination-previous,
+	.pagination-next {
+		@extend .box-shadow !optional;
+
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		position: relative;
+
+		&:before {
+			position: absolute;
+			content: "";
+			top: 0;
+			bottom: 0;
+			background-color: $white;
+			z-index: -1;
+			left: -1.2rem;
+			right: -1.2rem;
+		}
+	}
+
+	.pagination-previous {
+		margin-right: 1.2rem;
+	}
+
+	.pagination-next {
+		margin-left: 1.2rem;
+	}
+
+	> *:not(.pagination-previous):not(.pagination-next) {
+		padding-left: 0.3rem;
+		padding-right: 0.3rem;
+		display: block;
+		background-color: $white;
+	}
+
+
+}
+
+
+
+.force-lowercase {
+	text-transform: lowercase !important;
+}
+
+
+.video-wrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/* Components */
+.card {
+	background: $gray-100;
+	@extend .box-shadow !optional;
+}
+
+.gs-grid {
+	position: absolute;
+	max-width: none;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	opacity: 0.1;
+	z-index: 98;
+	pointer-events: none;
+	left: 50%;
+	transform: translateX(-50%);
+	// padding-left: $grid-gutter-width / 2;
+	// padding-right: $grid-gutter-width / 2;
+	padding-left: cols-to-width-percent(1, $grid-columns) * 1%;
+	padding-right: cols-to-width-percent(1, $grid-columns) * 1%;
+
+	@media screen and (min-width: #{$max-column-width + cols-to-width-pixels(2, $grid-columns)}px) {
+		max-width: #{$max-column-width}px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	> .gs-row {
+		// margin-left: $grid-gutter-width / -2;
+		// margin-right: $grid-gutter-width / -2;
+		display: flex;
+		flex-wrap: nowrap;
+		height: 100%;
+
+		> * {
+			flex-basis: 1 / $grid-columns * 100%;
+			max-width: cols-to-width-percent(1, $grid-columns) * 1%; // for IE 11
+			width: 100%;
+			border-left: solid 1px #000000;
+			border-right: solid 1px #000000;
+			margin-left: $grid-gutter-width / 2;
+			margin-right: $grid-gutter-width / 2;
+			background-color: #ccc;
+
+			&:first-child {
+				margin-left: 0;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+}

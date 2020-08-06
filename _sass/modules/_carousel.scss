@@ -1,0 +1,177 @@
+$carousel-module-column-size: $grid-columns;
+
+.carousel-module {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media screen and (min-width: 768px) {
+		&.full-bleed {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	.gs-module-column {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.slide-container {
+		border-radius: 4px;
+		&:not(.slick-initialized){
+			.carousel-slide:not(:first-child){
+				display:none;
+			}
+		}
+	}
+
+	.carousel-slide {
+		// bg image properties go here - width should follow .carousel-module
+		width: 100%;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		position: relative;
+
+		// min-height: 642px;
+		// border: solid 1px black;
+
+		&.has-background-image {
+			background:$color-primary;
+			.bg-image {
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+
+			.wysiwyg * {
+				color: $white;
+			}
+
+			// &:before {
+			// 	content: "";
+			// 	position: absolute;
+			// 	top: 0;
+			// 	right: 0;
+			// 	bottom: 0;
+			// 	left: 0;
+			// 	background-image: linear-gradient(to right, transparentize($grayscale-black, 0.25), transparentize($grayscale-black, 0.85));
+			// }
+		}
+
+		&.background-image-only {
+			min-height: 645px;
+		}
+
+		.slide-content-container {
+			margin-left: auto;
+			margin-right: auto;
+
+			&.has-featured-image {
+				display: flex;
+				flex-direction: column-reverse;
+
+				@media screen and (min-width: 992px) {
+					flex-direction: row;
+				}
+
+				.slide-content {
+					// flex-basis: 50%;
+					flex: 0 0 50%;
+
+					+ .slide-content {
+						padding-left: 0;
+						margin-bottom: 2rem;
+
+						@media screen and (min-width: 992px) {
+							padding-left: 2rem;
+							margin-bottom: 0;
+						}
+					}
+				}
+				// .featured-image {
+				// 	flex-grow:0;
+				// }
+			}
+		}
+	}
+
+	.slide-container.no-gradient {
+		.carousel-slide.has-background-image:before {
+			display: none;
+		}
+	}
+
+	.inner-slide {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	&.full-bleed {
+		// max-width: none;
+
+		.gs-module-container {
+			max-width: none;
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		.gs-module-column {
+			// max-width: none;
+			border-radius: 0;
+		}
+
+		.inner-slide {
+			max-width: $max-column-width * 1px;
+
+		}
+
+		.slide-content-container {
+			max-width: cols-to-width-percent($carousel-module-column-size - 2, $grid-columns) * 1%;
+
+			&.has-featured-image {
+				max-width: cols-to-width-percent($carousel-module-column-size - 2, $grid-columns) * 1%;
+			}
+
+			@media screen and (min-width: 992px) {
+				max-width: cols-to-width-percent($carousel-module-column-size - 4, $grid-columns) * 1%;
+			}
+		}
+
+		.slick-dots {
+			max-width: cols-to-width-percent($carousel-module-column-size - 4, $grid-columns) * 1%;
+		}
+	}
+
+	&:not(.full-bleed) {
+		// max-width: $max-column-width * 1px;
+
+		.gs-module-column {
+			max-width: cols-to-width-percent($carousel-module-column-size, $grid-columns) * 1%;
+		}
+
+		.inner-slide {
+			max-width: none;
+		}
+
+		.slide-content-container {
+			max-width: cols-to-width-percent($carousel-module-column-size - 2, $carousel-module-column-size) * 1%;
+
+			@media screen and (min-width: 992px) {
+				max-width: cols-to-width-percent($carousel-module-column-size - 4, $carousel-module-column-size) * 1%;
+			}
+
+			&.has-featured-image {
+				max-width: cols-to-width-percent($carousel-module-column-size - 2, $carousel-module-column-size) * 1%;
+
+				@media screen and (min-width: 992px) {
+					max-width: cols-to-width-percent($carousel-module-column-size - 4, $carousel-module-column-size) * 1%;
+				}
+			}
+		}
+	}
+
+}

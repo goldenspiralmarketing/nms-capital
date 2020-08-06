@@ -1,0 +1,42 @@
+body.error404 {
+
+	.error404-outer {
+		max-width: $max-column-width * 1px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+	}
+
+	.error404-inner {
+		max-width: cols-to-width-percent(20, 24) * 1%;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+	}
+
+	.error404-content-container {
+		flex: 0 0 cols-to-width-percent(14, 20) * 1%;
+	}
+
+	.error404-content {
+		max-width: cols-to-width-percent(12, 14) * 1%;
+		width: 100%;
+		margin-left: cols-to-width-percent(2, 14) * 1%;
+		margin-top: 6rem;
+
+		hr {
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+	}
+
+	.error404-sidebar-container {
+		flex: 1 0 cols-to-width-percent(5, 20) * 1%;
+		margin-left: cols-to-width-percent(1, 20) * 1%;
+	}
+
+}

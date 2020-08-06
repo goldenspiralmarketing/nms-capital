@@ -1,0 +1,102 @@
+$card-module-column-size: $grid-columns;
+
+.card-module {
+	min-height: auto;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	.gs-module-column {
+		position: relative;
+		display: flex;
+		margin-left: auto;
+		margin-right: auto;
+
+		// @media screen and (min-width: 1200px) {
+		// 	// max-width: cols-to-width-percent($card-module-column-size, $grid-columns) * 1%;
+		// 	@include width($card-module-column-size, $grid-columns);
+		// }
+	}
+
+	.cards {
+		display: block;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+
+		@media screen and (min-width: 992px) {
+			display: flex;
+		}
+
+		&[data-columns="2"] {
+			.card-container {
+				flex-basis: 50%;
+			}
+		}
+
+		&[data-columns="3"] {
+			.card-container {
+				flex-basis: 33.33334%;
+			}
+		}
+
+		&[data-columns="4"] {
+			.card-container {
+				flex-basis: 25%;
+			}
+		}
+
+		&[data-alignment="center"] {
+			justify-content: center;
+		}
+
+		&[data-alignment="right"] {
+			justify-content: flex-end;
+		}
+
+		.card-container {
+			padding: ($grid-gutter-width / 2) ($grid-gutter-width / 2);
+			flex: 0 0 100%;
+
+			// &:first-child {
+			// 	padding-left: 0;
+			// }
+			//
+			// &:last-child {
+			// 	padding-right: 0;
+			// }
+		}
+
+		.card {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			border-radius: 4px;
+			overflow: hidden;
+
+			.card-content {
+				padding: 2rem;
+				flex-grow: 1;
+				background-color: $white;
+				display: flex;
+				flex-direction: column;
+			}
+			.card-image {
+				position: relative;
+				flex: 0 0 275px;
+				background-color: $color-secondary;
+
+				> * {
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center;
+				}
+			}
+
+			.card-button-container {
+				margin-top: auto;
+				padding-top: 1rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,74 @@
+// Image Preload Animations
+.image-preload:not(.loaded) {
+	// default img visual state before loading
+	// makes whole image area gray until loaded
+	filter: contrast(0);
+	background-color:gray;
+	// optional default animation
+	transform: translateY(50px);
+}
+.bg-image-preload:not(.loaded) {
+	// default bg visual state before loading
+	opacity:0 !important;
+}
+.image-preload.loaded, .bg-image-preload.loaded {
+	transition: all 0.5s ease; // apply transition for reveal animation
+}
+
+
+// Animate On Scroll (can be layered onto Image Preload or used individually)
+[class*="on-scroll"] {
+	transition: all 0.5s ease;
+}
+.on-scroll-fade:not(.active) {
+	opacity:0;
+}
+.on-scroll-fade-up:not(.active) {
+	opacity:0;
+	transform: translateY(50px);
+}
+.on-scroll-fade-down:not(.active) {
+	opacity:0;
+	transform: translateY(-50px);
+}
+.on-scroll-fade-left:not(.active) {
+	opacity:0;
+	transform: translateX(50px);
+}
+.on-scroll-fade-right:not(.active) {
+	opacity:0;
+	transform: translateX(-50px);
+}
+
+
+
+
+// .image-preload, .bg-image-preload {
+// 	transition: all 3.3s ease; // make everything transition
+// }
+// .image-preload.loaded, .bg-image-preload.loaded {
+// 	// opacity = 1 by default
+// }
+// .image-preload:not(.loaded), .bg-image-preload:not(.loaded) {
+//
+// 	// default visual state before loading
+// 	opacity: 0 !important;
+//
+// 	// modifier classes for animations
+// 	// &.load-fade-up {
+// 	// 	transform: translateY(50px); // will fade in & up
+// 	// }
+// 	// &.load-fade-down {
+// 	// 	transform: translateY(-50px); // will fade in & up
+// 	// }
+// 	// &.load-fade-right {
+// 	// 	transform: translateX(-50px); // will fade in & up
+// 	// }
+// 	// &.load-fade-left {
+// 	// 	transform: translateX(50px); // will fade in & up
+// 	// }
+// }
+// .image-preload.loaded:not(.animated) {
+// 	opacity: 0 !important;
+// 	transform: translateY(50px);
+// }

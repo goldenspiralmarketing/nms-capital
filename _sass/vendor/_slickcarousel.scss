@@ -1,0 +1,5 @@
+// overrides
+$slick-loader-path: "./img/" !default;
+
+@import "_lib/scss/slick-carousel/slick.scss";
+@import "_lib/scss/slick-carousel/slick-theme.scss";

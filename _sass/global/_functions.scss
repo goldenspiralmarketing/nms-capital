@@ -1,0 +1,129 @@
+/// Power function
+/// @param {Number} $x
+/// @param {Number} $n
+/// @return {Number}
+
+@function pow($x, $n) {
+	$ret: 1;
+
+	@if $n >= 0 {
+		@for $i from 1 through $n {
+			$ret: $ret * $x;
+		}
+	} @else {
+		@for $i from $n to 0 {
+			$ret: $ret / $x;
+		}
+	}
+
+	@return $ret;
+}
+
+/// toFixed() function in Sass
+/// @author Hugo Giraudel
+/// @param {Number} $float - Number to format
+/// @param {Number} $digits [2] - Number of digits to leave
+/// @return {Number}
+
+@function to-fixed($float, $digits: 2) {
+	$sass-precision: 5;
+
+	@if $digits > $sass-precision {
+		@warn "Sass sets default precision to #{$sass-precision} digits, and there is no way to change that for now."
+		+ "The returned number will have #{$sass-precision} digits, even if you asked for `#{$digits}`."
+		+ "See https://github.com/sass/sass/issues/1122 for further informations.";
+	}
+
+	$pow: pow(10, $digits);
+	@return round($float * $pow) / $pow;
+}
+
+@mixin col-width( $desired-columns ) {
+	flex-basis: $desired-columns / $grid-columns * 100%;
+	max-width: grid($desired-columns, $grid-columns) * 1%;
+	width: 100%;
+}
+
+@mixin width( $desired-columns, $total-columns ) {
+	flex-basis: $desired-columns / $total-columns * 100%;
+	max-width: grid($desired-columns, $total-columns) * 1%;
+	width: 100%;
+}
+
+@function grid( $desired-columns, $total-columns ) {
+	@return ( ( $max-column-width / $total-columns ) * ( $desired-columns / $max-column-width ) ) * 100;
+}
+
+@function cols-to-width-percent( $cols, $grid-cols ) {
+	@return ( ( $max-column-width / $grid-cols ) * ( $cols / $max-column-width ) ) * 100;
+}
+
+@function cols-to-width-pixels( $cols, $grid-cols ) {
+	@return ( $max-column-width / $grid-cols ) * $cols;
+}
+
+// function to convert pixels to ems
+@function em($pixels, $context: $base-size) {
+  @return #{$pixels/$context}em;
+}
+
+/*
+	Header List Generator
+	By: Kyle Numann
+	----------------------------------------------
+	enter the size list (with unit type) and the desired element name (or class), and get a numbered list of headers with font sizes
+	example:	@include header-sizes((48em, 32px, 16vw), '.test');
+	result:
+		.test1 { font-size:3em; }
+		.test2 { font-size:2px; }
+		.test3 { font-size:1vw; }
+*/
+
+@mixin header-sizes($element, $sizes) {
+	@for $i from 1 through length($sizes) {
+    // $size: em(nth($sizes, $i));
+		#{$element}#{$i} {	font-size: #{nth($sizes, $i)}; }
+	}
+}
+
+/// Map deep get
+// @author Hugo Giraudel
+// @access public
+// @param {Map} $map - Map
+// @param {Arglist} $keys - Key chain
+// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// Recursive map merge for nested maps
+// extended from https://medium.com/@pentzzsolt/a-non-destructive-map-merge-function-for-sass-f91637f87b2e
+@function map-deep-merge($parent-map, $child-map) {
+	$result: $parent-map;
+	@each $key, $value in $child-map {
+		@if (not map-has-key($result, $key))
+		or (type-of(map-get($result, $key)) != type-of($value))
+		or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
+			@if($value != ()){ // do not merge an empty map
+				$result: map-merge($result, ($key: $value));
+			}
+		}
+		@else {
+			$result: map-merge($result, ($key: map-deep-merge(map-get($result, $key), $value)));
+		}
+
+	}
+	@return $result;
+}
+
+// TODO: change this from mixin to function (mixin gets printed in this partial, I think)
+@mixin get-type-styles($el, $important: false) {
+	$map: map-get($type_styles, $el);
+	$imp: if($important, '!important', '');
+	@each $key, $value in $map {
+	  #{$key}: #{$value} #{$imp};
+	}
+}

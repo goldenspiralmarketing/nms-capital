@@ -1,0 +1,15 @@
+<?php get_template_part( 'templates/modules/hero' ); ?>
+<?php get_template_part( 'templates/modules/text' ); ?>
+<?php get_template_part( 'templates/modules/carousel' ); ?>
+<?php get_template_part( 'templates/modules/testimonial' ); ?>
+<?php get_template_part( 'templates/modules/text-w-image' ); ?>
+<?php get_template_part( 'templates/modules/expandable' ); ?>
+<?php get_template_part( 'templates/modules/card' ); ?>
+<?php get_template_part( 'templates/modules/icon-grid' ); ?>
+<?php get_template_part( 'templates/modules/tab' ); ?>
+<?php get_template_part( 'templates/modules/featured-list' ); ?>
+<?php get_template_part( 'templates/modules/banner-image' ); ?>
+<?php get_template_part( 'templates/modules/template' ); ?>
+<?php get_template_part( 'templates/modules/grouping' ); ?>
+<?php get_template_part( 'templates/modules/text-w-form' ); ?>
+<?php get_template_part( 'templates/modules/team-listing' ); ?>

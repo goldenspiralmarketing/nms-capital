@@ -1,0 +1,176 @@
+$text-module-column-size: $grid-columns; // in number of columns
+$text-module-gutter-size: 0.25; // space b/w content columns, in number of columns
+$text-grid-gutter-size: $module-grid-gutter-size; // in number of columns
+
+
+.text-module {
+	// .gs-module-column {
+		// @include width($text-module-column-size - $text-grid-gutter-size * 2, $grid-columns);
+		// flex-basis: $text-module-column-size - $text-grid-gutter-size * 2 / $grid-columns * 100%;
+		// max-width: grid($text-module-column-size - $text-grid-gutter-size * 2, $grid-columns) * 1%;
+		margin-left: auto;
+		margin-right: auto;
+
+		@media screen and (min-width: 992px) {
+			// @include width($text-module-column-size - $text-grid-gutter-size, $grid-columns);
+			// flex-basis: $text-module-column-size - $text-grid-gutter-size / $grid-columns * 100%;
+			// max-width: grid($text-module-column-size - $text-grid-gutter-size, $grid-columns) * 1%;
+		}
+
+		@media screen and (min-width: #{$max-column-width + cols-to-width-pixels($text-grid-gutter-size, $grid-columns)}px) {
+			// @include width($text-module-column-size, $grid-columns);
+			// flex-basis: $text-module-column-size / $grid-columns * 100%;
+			// max-width: grid($text-module-column-size, $grid-columns) * 1%;
+		}
+	// }
+
+	.text-columns-container {
+		display: block;
+
+		@media screen and (min-width: 992px) {
+			display: flex;
+		}
+	}
+
+	.text-column {
+		flex: 1 0 100%;
+		padding-left: 0;
+		padding-right: 0;
+
+		@media screen and (min-width: 992px) {
+			// padding-left: grid($text-module-gutter-size, $grid-columns) * 1%;
+			// padding-right: grid($text-module-gutter-size, $grid-columns) * 1%;
+			@include make-col-offset($text-module-gutter-size);
+			@include make-col-offset-reverse($text-module-gutter-size);
+		}
+	}
+	.text-columns-container[data-columns="1"]{
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+		@media screen and (min-width: 992px) {
+			// single column text gets max width on larger screens
+			// for now I set this in ems to conform to max line-length reading spec via KE - KN
+			max-width: 45em;
+		}
+
+		&.single-column-small {
+			@media screen and (min-width: 992px) {
+				// max-width: grid(18, $grid-columns) * 1%;
+				@include make-col(18);
+			}
+			@media screen and (min-width: 1200px) {
+				// max-width: grid(12, $grid-columns) * 1%;
+				@include make-col(12);
+			}
+		}
+		&.single-column-medium {
+			@media screen and (min-width: 992px) {
+				// max-width: grid(22, $grid-columns) * 1%;
+				@include make-col(22);
+			}
+			@media screen and (min-width: 1200px) {
+				// max-width: grid(18, $grid-columns) * 1%;
+				@include make-col(18);
+			}
+		}
+		&.single-column-large {
+			// max-width: grid($grid-columns, $grid-columns) * 1%;
+			@include make-col($grid-columns);
+		}
+	}
+	.text-columns-container:not([data-columns="1"]):not([data-columns="2"]) {
+		.text-column:first-child {
+			@media screen and (min-width: 992px) {
+				// padding-right: grid($text-module-gutter-size * 2, $grid-columns) * 1%;
+				@include make-col-offset-reverse($text-module-gutter-size * 2);
+			}
+		}
+
+		.text-column:last-child {
+			@media screen and (min-width: 992px) {
+				// padding-left: grid($text-module-gutter-size * 2, $grid-columns) * 1%;
+				@include make-col-offset($text-module-gutter-size * 2);
+			}
+		}
+	}
+
+	[data-columns="2"] {
+		.text-column:first-child {
+			@media screen and (min-width: 992px) {
+				// padding-right: grid($text-module-gutter-size * 2, $grid-columns) * 1%;
+				@include make-col-offset-reverse($text-module-gutter-size * 2);
+			}
+		}
+	}
+
+	[data-columns="2"][data-first-column-size="1"] {
+		.text-column:last-child {
+			@media screen and (min-width: 992px) {
+				// flex: 0 0 grid($text-module-column-size / 3, $text-module-column-size) * 1%;
+				@include make-col($text-module-column-size / 3.2 * 2, $text-module-column-size);
+				// padding-right: grid($text-module-gutter-size * 2, $grid-columns) * 1%;
+				@include make-col-offset($text-module-gutter-size * 2);
+			}
+		}
+	}
+
+	[data-columns="2"][data-first-column-size="3"] {
+		.text-column:first-child {
+			@media screen and (min-width: 992px) {
+				// flex: 0 0 grid($text-module-column-size / 3 * 2, $text-module-column-size) * 1%;
+				@include make-col($text-module-column-size / 3.2 * 2, $text-module-column-size);
+			}
+		}
+
+		.text-column:last-child {
+			@media screen and (min-width: 992px) {
+				// padding-left: grid($text-module-gutter-size * 2, $grid-columns) * 1%;
+				@include make-col-offset($text-module-gutter-size * 2);
+			}
+		}
+	}
+
+	[data-columns="3"] {
+		.text-column {
+			@media screen and (min-width: 992px) {
+				// flex: 0 0 grid($text-module-column-size / 3, $text-module-column-size) * 1%;
+				@include make-col($text-module-column-size / 3, $text-module-column-size);
+			}
+		}
+	}
+
+	.text-column {
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+
+
+		+ .text-column {
+			margin-top: 2rem;
+
+			@media screen and (min-width: 992px) {
+				margin-top: 0;
+			}
+		}
+
+		@media screen and (min-width: 992px) {
+			flex: 1 1 50%;
+		}
+	}
+
+	&.full-width {
+		.gs-module-container {
+			max-width: none;
+		}
+
+		.gs-module-column {
+			max-width: 1600px;
+		}
+	}
+}

@@ -1,0 +1,108 @@
+// overrides
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+
+$enable-caret:                                true !default; // bootstrap default is true
+$enable-rounded:                              false !default; // bootstrap default is true
+$enable-shadows:                              false !default; // bootstrap default is false
+$enable-gradients:                            true !default; // bootstrap default is false
+$enable-transitions:                          false !default; // bootstrap default is true
+$enable-prefers-reduced-motion-media-query:   true !default; // bootstrap default is true
+$enable-grid-classes:                         true !default; // bootstrap default is true
+$enable-pointer-cursor-for-buttons:           true !default; // bootstrap default is true
+$enable-print-styles:                         false !default; // bootstrap default is true
+$enable-responsive-font-sizes:                true !default; // bootstrap default is false
+$enable-validation-icons:                     true !default; // bootstrap default is true
+$enable-deprecation-messages:                 true !default; // bootstrap default is true
+
+$grid-columns:					24 !default;
+$grid-gutter-width:				10px !default;
+
+
+$primary:       $color-primary !default;
+$secondary:     $color-secondary !default;
+$success:       rgb(  0, 200,   0) !default;
+$info:          rgb(  0,   0, 200) !default;
+$warning:       rgb(200, 200,   0) !default;
+$danger:        rgb(200,   0,   0) !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+
+@import "_lib/scss/bootstrap/functions";
+@import "_lib/scss/bootstrap/variables";
+
+// extend the $spacers array
+$spacers: map-merge(
+	(
+		6: ($spacer * 8),
+		7: ($spacer * 12),
+		8: ($spacer * 20),
+		9: ($spacer * 32),
+		10: ($spacer * 52),
+		11: ($spacer * 84),
+		12: ($spacer * 136),
+		13: ($spacer * 220)
+	),
+	$spacers
+);
+
+@import "_lib/scss/bootstrap/mixins";
+@import "_lib/scss/bootstrap/root";
+@import "_lib/scss/bootstrap/reboot";
+@import "_lib/scss/bootstrap/type";
+@import "_lib/scss/bootstrap/images";
+@import "_lib/scss/bootstrap/code";
+@import "_lib/scss/bootstrap/grid";
+@import "_lib/scss/bootstrap/tables";
+// @import "_lib/scss/bootstrap/forms";
+// @import "_lib/scss/bootstrap/buttons";
+// @import "_lib/scss/bootstrap/transitions";
+// @import "_lib/scss/bootstrap/dropdown";
+// @import "_lib/scss/bootstrap/button-group";
+// @import "_lib/scss/bootstrap/input-group";
+// @import "_lib/scss/bootstrap/custom-forms";
+// @import "_lib/scss/bootstrap/nav";
+// @import "_lib/scss/bootstrap/navbar";
+// @import "_lib/scss/bootstrap/card";
+// @import "_lib/scss/bootstrap/breadcrumb";
+// @import "_lib/scss/bootstrap/pagination";
+// @import "_lib/scss/bootstrap/badge";
+// @import "_lib/scss/bootstrap/jumbotron";
+// @import "_lib/scss/bootstrap/alert";
+// @import "_lib/scss/bootstrap/progress";
+// @import "_lib/scss/bootstrap/media";
+// @import "_lib/scss/bootstrap/list-group";
+// @import "_lib/scss/bootstrap/close";
+// @import "_lib/scss/bootstrap/toasts";
+// @import "_lib/scss/bootstrap/modal";
+// @import "_lib/scss/bootstrap/tooltip";
+// @import "_lib/scss/bootstrap/popover";
+// @import "_lib/scss/bootstrap/carousel";
+// @import "_lib/scss/bootstrap/spinners";
+@import "_lib/scss/bootstrap/utilities";
+@import "_lib/scss/bootstrap/print";
+
+// add offset column(s) on the right
+@mixin make-col-offset-reverse($size, $columns: $grid-columns) {
+	$num: $size / $columns;
+	margin-right: if($num == 0, 0, percentage($num));
+}
+
+// create grayscale background classes
+@each $color, $value in $grays {
+	@include bg-variant(".bg-gray-#{$color}", $value);
+}
+
+@if $enable-gradients {
+  @each $color, $value in $grays {
+    @include bg-gradient-variant(".bg-gradient-gray-#{$color}", $value);
+  }
+}

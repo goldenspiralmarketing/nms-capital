@@ -1,0 +1,27 @@
+@import 'global/functions';
+@import 'global/variables';
+
+@import 'vendor/**/*'; // all vendor stylesheets (order should not matter)
+
+// @import 'global/reset';
+@import 'global/global';
+@import 'global/wysiwyg';
+// @import 'global/text';
+@import 'global/colors';
+// @import 'global/whitespace';
+@import 'global/forms';
+@import 'global/buttons';
+@import 'global/loading';
+
+@import 'global/header';
+@import 'global/nav-mobile';
+
+@import 'global/single';
+@import 'global/error404';
+
+@import 'modules/**/*'; // all module stylesheets (order should not matter if built correctly)
+@import 'global/modules'; // override for any modules
+
+@import 'pages/*'; // all page stylesheets (order should not matter)
+
+@import 'global/footer';

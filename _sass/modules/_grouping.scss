@@ -1,0 +1,34 @@
+.grouping-module {
+
+	.grouping-container {
+		// max-width: cols-to-width-percent(20, 20) * 1%;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+		> .grouping-module {
+			max-width: none;
+		}
+	}
+
+	&.flex {
+		.simple-content {
+			.wysiwyg {
+				.h1 {
+					// font-size: 1.75em;
+					// line-height: 1.4;
+					//
+					// @media screen and (min-width: 992px) {
+						font-size: 2.25em;
+						line-height: 1.2;
+					// }
+
+					@media screen and (min-width: 1200px) {
+						font-size: 3.0em;
+						line-height: 1.3;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,103 @@
+$featured-list-module-column-size: $grid-columns;
+
+.featured-list-module {
+
+	// .gs-module-column {
+	// 	@include width($featured-list-module-column-size - 2, $grid-columns);
+	// 	// max-width: cols-to-width-percent($featured-list-module-column-size, $grid-columns) * 1%;
+	// 	// width: 100%;
+	// 	margin-left: auto;
+	// 	margin-right: auto;
+	//
+	// 	@media screen and (min-width: #{$max-column-width + cols-to-width-pixels(2, $grid-columns)}px) {
+	// 		@include width($featured-list-module-column-size, $grid-columns);
+	// 	}
+	// }
+
+	.featured-list {
+		display: block;
+		flex-wrap: wrap;
+
+		@media screen and (min-width: 992px) {
+			display: flex;
+			flex-wrap: nowrap;
+		}
+	}
+
+	.featured-list-content {
+		flex: 0 1 cols-to-width-percent(12, $featured-list-module-column-size) * 1%;
+		padding-right: cols-to-width-percent(0.5, $featured-list-module-column-size) * 1%;
+	}
+
+	.featured-list-list-title {
+		// padding-left: 2rem;
+		margin-bottom: 0;
+	}
+
+	.featured-list-lists {
+		flex: 0 1 cols-to-width-percent(12, $featured-list-module-column-size) * 1%;
+		max-width: 100%;
+		width: 100%;
+		margin-left: auto;
+		display: flex;
+		flex-wrap: wrap;
+		// margin: -0.3rem;
+		// margin-top: 4rem;
+		margin: 0;
+		position: relative;
+
+		// @media screen and (min-width: 992px) {
+		// 	margin: -0.3rem;
+		// }
+
+		// &:before {
+		// 	content: "";
+		// 	position: absolute;
+		// 	top: 3rem;
+		// 	right: 2rem;
+		// 	bottom: -1.5rem;
+		// 	left: -2rem;
+		// 	z-index: -1;
+		// }
+	}
+
+	.featured-list-list {
+		@extend .box-shadow !optional;
+
+		flex: 1 0 100%;
+		// margin: 0.3rem;
+		border-radius: 4px;
+		padding: 2rem 1.5rem;
+		background-color: $white;
+
+		@media screen and (min-width: 1200px) {
+			flex: 1 0 50%;
+		}
+	}
+
+	.featured-list-list-items {
+		list-style: none;
+		padding-left: 0;
+
+		> li {
+			padding: 1.2em 0em 1.2em 2em;
+			position: relative;
+
+			+ li {
+				border-top: solid 1px darken($gray-100, 9.75%);
+			}
+
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 1.5em;
+				width: 0.5em;
+				height: 0.5em;
+				background-color: $color-secondary;
+				border-radius:50%;
+			}
+		}
+	}
+
+}

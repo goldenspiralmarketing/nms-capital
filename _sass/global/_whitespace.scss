@@ -1,0 +1,88 @@
+@mixin build_spacing( $size, $index, $value ) {
+	.m-#{$size}#{$index} { margin: $value !important; }
+
+	.p-#{$size}#{$index} { padding: $value !important; }
+
+	.v-#{$size}#{$index} { padding-top: $value !important; padding-bottom: $value !important; }
+}
+@mixin build_spacing_sides( $size, $index, $value ) {
+
+	.m-t-#{$size}#{$index} { margin-top: $value !important; }
+	.m-t-#{$size}#{$index}-negative { margin-top: -$value !important; }
+	.m-r-#{$size}#{$index} { margin-right: $value !important; }
+	.m-b-#{$size}#{$index} { margin-bottom: $value !important; }
+	.m-b-#{$size}#{$index}-negative { margin-top: -$value !important; }
+	.m-l-#{$size}#{$index} { margin-left: $value !important; }
+
+	.p-t-#{$size}#{$index} { padding-top: $value !important; }
+	.p-t-#{$size}#{$index}-negative { padding-top: -$value !important; }
+	.p-r-#{$size}#{$index} { padding-right: $value !important; }
+	.p-b-#{$size}#{$index} { padding-bottom: $value !important; }
+	.p-b-#{$size}#{$index}-negative { padding-top: -$value !important; }
+	.p-l-#{$size}#{$index} { padding-left: $value !important; }
+
+}
+
+@each $screensize, $multipliers in (default, $bp-multipliers-xs), (xs, $bp-multipliers-xs), (sm, $bp-multipliers-sm), (md, $bp-multipliers-md), (lg, $bp-multipliers-lg) {
+
+	@if $screensize == 'xs' {
+		@each $size in ('', 'xs-') {
+			@each $multiplier in $multipliers {
+				$index: index($multipliers, $multiplier);
+				$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+				@include build_spacing( $size, $index - 1, $value );
+			}
+			@each $multiplier in $multipliers {
+				$index: index($multipliers, $multiplier);
+				$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+				@include build_spacing_sides( $size, $index - 1, $value );
+			}
+		}
+	} @elseif $screensize == 'sm' {
+		@media screen and (min-width: $screen-sm-min) {
+			@each $size in ('', 'xs-','sm-') {
+				@each $multiplier in $multipliers {
+					$index: index($multipliers, $multiplier);
+					$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+					@include build_spacing( $size, $index - 1, $value );
+				}
+				@each $multiplier in $multipliers {
+					$index: index($multipliers, $multiplier);
+					$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+					@include build_spacing_sides( $size, $index - 1, $value );
+				}
+			}
+		}
+	} @elseif $screensize == 'md' {
+		@media screen and (min-width: $screen-md-min) {
+			@each $size in ('', 'xs-','sm-','md-') {
+				@each $multiplier in $multipliers {
+					$index: index($multipliers, $multiplier);
+					$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+					@include build_spacing( $size, $index - 1, $value );
+				}
+				@each $multiplier in $multipliers {
+					$index: index($multipliers, $multiplier);
+					$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+					@include build_spacing_sides( $size, $index - 1, $value );
+				}
+			}
+		}
+	} @elseif $screensize == 'lg' {
+		@media screen and (min-width: $screen-lg-min) {
+			@each $size in ('', 'xs-','sm-','md-','lg-') {
+				@each $multiplier in $multipliers {
+					$index: index($multipliers, $multiplier);
+					$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+					@include build_spacing( $size, $index - 1, $value );
+				}
+				@each $multiplier in $multipliers {
+					$index: index($multipliers, $multiplier);
+					$value: to-fixed($multiplier) * $spacing-base-size * 1px;
+					@include build_spacing_sides( $size, $index - 1, $value );
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,201 @@
+.hbspt-form { // hubspot specific
+	@extend .box-shadow !optional;
+	@extend .bg-white !optional;
+
+	padding: 3rem !important;
+	position: relative;
+
+
+	border-radius: 4px;
+	border-top: solid 8px $color-secondary;
+}
+
+form {
+	margin-bottom: 0 !important;
+
+	::placeholder {
+		font-family: $font-primary !important;
+		font-size: inherit !important;
+		color: transparentize($gray-800, 0.46) !important;
+	}
+
+	fieldset {
+		margin-bottom: 0 !important;
+		max-width: none !important;
+		position: relative !important;
+
+		@media screen and (min-width: 768px) {
+			margin-bottom: 1.5rem !important;
+		}
+
+		.field { // hubspot specific
+			position: relative !important;
+			margin-bottom: 1.5rem;
+
+			@media screen and (min-width: 768px) {
+				margin-bottom: 0 !important;
+			}
+		}
+	}
+
+	label {
+		font-family: $font-secondary !important;
+		font-size: 0.75rem !important;
+		// color: transparentize($gray-800, 0.46) !important;
+		color: $gray-800 !important;
+		text-transform: uppercase !important;
+		font-weight: 600 !important;
+		padding-left: 0.1rem !important;
+		line-height: 1rem !important;
+		margin-bottom: 0 !important;
+
+		.hs-form-required { // hubspot specific
+			color: $color-error !important;
+			padding-left: 0.3rem !important;
+		}
+
+		&.error {
+			position: absolute;
+			left: 0;
+			top: calc(100% + 4px);
+			color: $color-error !important;
+			margin-bottom: 0 !important;
+			line-height: 1rem !important;
+		}
+	}
+
+	legend {
+		font-family: $font-primary !important;
+		font-size: 0.75rem !important;
+		color: transparentize($gray-800, 0.56) !important;
+	}
+
+	.hs-input { // hubspot specific
+		max-width: none !important;
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="search"],
+	input[type="number"],
+	input[type="date"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="color"],
+	input[type="datetime-local"],
+	input[type="month"],
+	input[type="range"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"],
+	input[type="password"],
+	select {
+		box-sizing: inherit !important;
+		-webkit-appearance: none !important;
+		background-color: $white !important;
+		font-family: $font-primary !important;
+		font-size: 0.9rem !important;
+		border: none !important;
+		box-shadow: none !important;
+		border-bottom: solid 1px darken($gray-100, 9.75%) !important;
+		border-radius: 0 !important;
+		color: $gray-800 !important;
+		// outline: $white auto 5px !important;
+		outline-offset: 1px !important;
+		padding: 0.75rem 0.5rem !important;
+		transition: all 0.2s ease !important;
+		width: 100% !important;
+		height: auto !important;
+
+		&:focus {
+			border-bottom-color: $color-secondary !important;
+			outline: transparentize($gray-100, 0.46) auto 5px !important;
+		}
+
+		&.error {
+			border-bottom-color: $color-error !important;
+
+			// &:focus {
+			// 	outline: transparentize($color-error, 0.76) auto 5px !important;
+			// }
+		}
+
+		@media screen and (min-width: 768px) {
+			font-size: 1rem !important;
+		}
+	}
+
+	textarea {
+		min-height: 200px;
+	}
+
+	select {
+		background-color: $gray-100 !important;
+		border-radius: 4px !important;
+		border-bottom: none !important;
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+
+		&.error {
+			box-shadow: 0 0 0 1px $color-error !important;
+		}
+	}
+
+	.input {
+		position: relative;
+	}
+
+	.input.select {
+
+	}
+
+	input[type="file"] {
+		font-family: $font-primary !important;
+		background-color: $white !important;
+		border: none !important;
+		box-shadow: none !important;
+		border-radius: 0 !important;
+		color: $gray-800 !important;
+		font-size: 1rem !important;
+
+		&:focus {
+			outline: transparentize($gray-100, 0.46) auto 5px !important;
+		}
+	}
+
+	ul.hs-error-msgs,
+	ul.hs-error-msgs > li { // hubspot specific
+		// margin-top: 0.6rem !important;
+		margin-bottom: 0 !important;
+
+		label {
+			@extend label.error !optional;
+			// font-family: $font-primary !important;
+			// font-weight: 400 !important;
+			// font-size: 0.875rem !important;
+			// color: $color-error !important;
+			// text-transform: none !important;
+			// padding-left: 0 !important;
+			// margin-bottom: 0.25rem !important;
+		}
+	}
+
+	.fn-date-picker .is-selected .pika-button { // hubspot specific
+		color: $white !important;
+	}
+
+	.fn-date-picker .pika-button { // hubspot specific
+		color: $gray-800 !important;
+	}
+
+	.hs-button { // hubspot specific
+		@extend .button !optional;
+	}
+
+	.actions { // hubspot specific
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+}

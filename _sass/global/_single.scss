@@ -1,0 +1,19 @@
+body.single {
+
+	.single-item {
+		width: 100%;
+		max-width: none;
+		margin-top: 0;
+		margin-left: 0;
+
+		// @media screen and (min-width: $screen-md-min) {
+		@include media-breakpoint-up(md) {
+			// max-width: cols-to-width-percent(12, 24) * 1%;
+			max-width: col-width(12);
+			margin: 0 auto;
+			padding: $module-v-padding * 1em 0;
+		}
+
+	}
+
+}

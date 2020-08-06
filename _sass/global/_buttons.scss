@@ -1,0 +1,99 @@
+.button-test {
+	color: black;
+}
+.button {
+	display: inline-block !important;
+	box-shadow: none !important;
+	transition: all 0.3s ease !important;
+	-webkit-appearance: none !important;
+	text-shadow: none !important;
+	background-image: none !important;
+	position: relative !important;
+	text-align: center !important;
+	font-family: $font-primary;
+	font-size: 16px;
+	color: $white;
+	background-color: $color-primary;
+	border-radius: 4px;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 1.6;
+	padding: 0.5em 2em;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		text-decoration: none;
+		// opacity: 0.8;
+		background-color: darken($color-primary, 5%);
+		color: $white;
+	}
+
+	&.outlined {
+		box-shadow:inset 0 0 0 2px $color-primary;
+		background: transparent;
+	}
+
+
+	&.secondary {
+
+		background-color: $color-secondary;
+
+		&.outlined {
+			box-shadow: inset 0 0 0 2px $color-secondary;
+			background: transparent;
+		}
+		&:hover {
+			text-decoration: none;
+			// opacity: 0.8;
+			background-color: darken($color-secondary, 5%);
+			color: $white;
+		}
+	}
+
+	&.small {
+		@extend .s5 !optional;
+	}
+
+
+	+ .button {
+		margin-left: 1rem;
+	}
+}
+
+
+
+
+// button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+	@extend .button !optional;
+}
+
+
+.tag {
+	font-family: $font-secondary;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 0.875em;
+	line-height: 1.2;
+	letter-spacing: 0.44px;
+	color: transparentize($gray-800, 0.46);
+	background-color: $gray-100;
+	display: inline-block;
+	padding: 0.2rem 0.4rem;
+	text-decoration: none;
+	border-radius: 2px;
+
+	&:hover {
+		color: $color-secondary;
+		text-decoration: none;
+	}
+
+	&:active,
+	&:focus {
+		color: $white;
+		background-color: $color-secondary;
+		text-decoration: none;
+	}
+}

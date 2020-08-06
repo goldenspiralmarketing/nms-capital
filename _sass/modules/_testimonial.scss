@@ -1,0 +1,205 @@
+$testimonial-module-column-size: $grid-columns;
+
+.testimonial-module {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	// min-height: 642px;
+	// border: solid 1px red;
+
+	@media screen and (min-width: 768px) {
+		&.full-bleed {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	.gs-module-column {
+		// margin-left: $grid-gutter-width / -2;
+		// margin-right: $grid-gutter-width / -2;
+	}
+
+	.gs-module-column {
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: 4px;
+	}
+
+	.testimonial-slide {
+		// bg image properties go here - width should follow .testimonial-module
+		width: 100%;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		position: relative;
+
+		// min-height: 642px;
+		// border: solid 1px black;
+
+		.slide-content-container {
+			margin-left: auto;
+			margin-right: auto;
+			width: 100%;
+
+			// min-height: 642px;
+			// border: solid 1px green;
+		}
+
+		.slide-attribution-container {
+			display: flex;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+
+		.slide-attribution {
+			text-align: right;
+			margin-left: auto;
+			margin-right: 0;
+			// padding-top: 3rem;
+			// padding-bottom: 3rem;
+
+			> * {
+				margin-bottom: 0;
+				color: $color-primary;
+			}
+		}
+
+		.attribution-image {
+			// position: absolute;
+			width: 99px;
+			height: 99px;
+			border-radius: 50%;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100%;
+			margin-top: auto;
+			margin-bottom: 0;
+			background-color: $gray-100;
+		}
+	}
+
+	.inner-slide {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	.quote-mark {
+		font-size: 11rem;
+		font-weight: 600;
+		line-height: 42px;
+		position: absolute;
+		font-family: $font-secondary;
+		z-index: -1;
+	}
+
+	// .slide-content {
+	// 	font-size: 1.5em;
+	// 	line-height: 1.4;
+	//
+	// 	@media screen and (min-width: 768px) {
+	// 		font-size: 2.25em;
+	// 		line-height: 1.2;
+	// 	}
+	// }
+
+	&.full-bleed {
+		// max-width: none;
+
+		// .quote-mark {
+		// 	color: $gray-100;
+		// 	top: 1.9rem;
+		// 	left: 16.4rem;
+		// }
+
+		.gs-module-container {
+			max-width: none;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.gs-module-column {
+			max-width: none;
+			border-radius: 0;
+		}
+
+		.inner-slide {
+			max-width: $max-column-width * 1px;
+
+			// min-height: 642px;
+			// border: solid 1px blue;
+		}
+
+		.slide-content-container {
+			max-width: cols-to-width-percent($testimonial-module-column-size - 6, $grid-columns) * 1%;
+		}
+
+		.slide-attribution {
+			max-width: cols-to-width-percent($testimonial-module-column-size - 6, $grid-columns) * 1%;
+		}
+
+		.attribution-image {
+			left: 9rem;
+			top: -1rem;
+			// margin-top: 0;
+			// margin-bottom: 0;
+		}
+
+		.slick-dots {
+			max-width: cols-to-width-percent($testimonial-module-column-size - 2, $grid-columns) * 1%;
+		}
+	}
+
+	.quote-mark {
+		color: $color-primary;
+		left: 0;
+		top: -2rem;
+
+		@media screen and (min-width: 768px) {
+			left: 1.3rem;
+			top: 0.7rem;
+		}
+
+		@media screen and (min-width: 992px) {
+			left: 3.3rem;
+		}
+	}
+
+	&:not(.full-bleed) {
+		max-width: $max-column-width * 1px;
+
+		// .gs-module-column {
+		//
+		// 	@media screen and (min-width: 768px) {
+		// 		max-width: cols-to-width-percent($testimonial-module-column-size - 2, $grid-columns) * 1%;
+		// 	}
+		//
+		// 	@media screen and (min-width: 992px) {
+		// 		max-width: cols-to-width-percent($testimonial-module-column-size, $grid-columns) * 1%;
+		// 	}
+		// }
+
+		.inner-slide {
+			max-width: none;
+
+			// min-height: 642px;
+			// border: solid 1px blue;
+		}
+
+		.slide-content-container {
+			@include width($testimonial-module-column-size - 4, $grid-columns);
+			// max-width: cols-to-width-percent($testimonial-module-column-size - 6, $grid-columns) * 1%;
+
+			// @media screen and (min-width: 768px) {
+			// 	max-width: cols-to-width-percent($testimonial-module-column-size - 6, $testimonial-module-column-size) * 1%;
+			// }
+		}
+
+		.slide-attribution {
+			max-width: cols-to-width-percent($testimonial-module-column-size / 2, $testimonial-module-column-size) * 1%;
+		}
+	}
+
+}

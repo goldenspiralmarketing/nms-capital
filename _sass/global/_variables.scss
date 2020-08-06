@@ -1,0 +1,65 @@
+// primary, secondary, tertiary, quaternary, quinary, septenary, octonary, nonary, denary
+$color-primary:				rgb( 53,  23,  79); // #35174f
+$color-primary-dark:		darken($color-primary, 5%);
+$color-primary-light:		lighten($color-primary, 15%);
+$color-secondary:			rgb( 83, 149, 186); // #5395ba
+$color-secondary-dark:		darken($color-secondary, 15%);
+$color-secondary-light:		lighten($color-secondary, 15%);
+
+// $grayscale-black: 			rgb(  0,   0,   0); // #000000
+// $grayscale-gray-1:			rgb( 60,  60,  60); // #3C3C3C
+// $grayscale-gray-2:			rgb(245, 245, 245); // #F5F5F5
+// $grayscale-gray-3:			rgb(249, 249, 249); // #DCDCDC
+// $grayscale-white:			rgb(255, 255, 255); // #FFFFFF
+// $color-white: #ffffff;
+
+$background-gradient-primary:		linear-gradient(180deg, $color-primary, $color-primary-dark);
+$background-gradient-secondary:		linear-gradient(45deg, $color-secondary, $color-secondary-dark);
+// $background-gradient-gray:			linear-gradient(0deg, $grayscale-white, $grayscale-gray-2);
+
+$color-error:				rgb(213,   0,   0); // #D50000
+
+$font-primary:				'Roboto', 'Helvetica', sans-serif;
+$font-secondary:			'Open Sans', 'arial', sans-serif;
+
+
+// these variables can be updated per project
+$max-column-width: 1440;
+$base-size: 16;
+$module-v-padding: 3; // default module vertical padding (in REMS). can be overwritten with classes
+$grid-spacing: 1; // grid spacing (IN REMS)
+
+$module-grid-gutter-size: 1; // in number of columns
+$mobile-nav-max-width: 1000px;
+
+
+/*
+ *	Button Variables
+ *
+ */
+
+// $button-border-radius: 0;
+// $button-round-multiplier: 0;
+// $button-round-sm-multiplier: 0;
+
+
+/*
+ *	Spacing Variables
+ *
+ */
+
+// $spacing-base-size: to-fixed($base-size / 4);
+
+// ideally, these multipliers don't need to be udpated
+// (xxs, xs, sm, md, lg, xl)
+// $bp-multipliers-xs: 0, 1, 2, 3, 5, 8, 13;
+// $bp-multipliers-sm: 0, 2, 3, 5, 8, 13, 21;
+// $bp-multipliers-md: 0, 3, 5, 8, 13, 21, 34;
+// $bp-multipliers-lg: 0, 5, 8, 13, 21, 34, 55;
+
+
+// $screen-xs-min: map-get($grid-breakpoints, "xs");
+// $screen-sm-min: map-get($grid-breakpoints, "sm");
+// $screen-md-min: map-get($grid-breakpoints, "md");
+// $screen-lg-min: map-get($grid-breakpoints, "lg");
+// $screen-xl-min: map-get($grid-breakpoints, "xl");

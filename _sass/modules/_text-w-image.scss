@@ -1,0 +1,227 @@
+$text-w-image-module-column-size: $grid-columns;
+
+.text-w-image-module {
+
+	// .gs-module-row {
+		// margin-left: $grid-gutter-width / -2;
+		// margin-right: $grid-gutter-width / -2;
+
+		.gs-module-column {
+			display: block;
+			flex-wrap: wrap;
+			// max-width: cols-to-width-percent($text-w-image-module-column-size, $grid-columns) * 1%;
+			// width: 100%;
+			// flex-basis: cols-to-width-percent($text-w-image-module-column-size, $grid-columns) * 1%;
+			// margin-left: auto;
+			// margin-right: auto;
+
+			@media screen and (min-width: 768px) {
+				display: flex;
+				flex-wrap: nowrap;
+				flex-direction: column-reverse;
+			}
+
+			@media screen and (min-width: 992px) {
+				flex-direction: row;
+			}
+
+			> * {
+				padding-left: 0;
+				padding-right: 0;
+
+				@media screen and (min-width: 992px) {
+					&:last-child {
+						padding-left: cols-to-width-percent(2, $text-w-image-module-column-size) * 1%;
+						padding-right: 0;
+					}
+				}
+
+				// @media screen and (min-width: #{$max-column-width + cols-to-width-pixels(0.5, $grid-columns)}px) {
+				// 	&:first-child {
+				// 		padding-right: cols-to-width-percent(1, $text-w-image-module-column-size) * 1%;
+				// 	}
+				//
+				// 	&:last-child {
+				// 		padding-left: cols-to-width-percent(1, $text-w-image-module-column-size) * 1%;
+				// 	}
+				// }
+			}
+		}
+
+		.text-w-image-content {
+			// max-width: cols-to-width-percent($text-w-image-module-column-size, $grid-columns) * 1%;
+			// width: 100%;
+			// flex-basis: cols-to-width-percent($text-w-image-module-column-size, $grid-columns) * 1%;
+			// @include width($text-w-image-module-column-size, $grid-columns)
+			@include make-col($text-w-image-module-column-size);
+
+
+			@media screen and (min-width: 992px) {
+				// max-width: cols-to-width-percent($grid-columns / 2, $text-w-image-module-column-size) * 1%;
+				// flex-basis: cols-to-width-percent($grid-columns / 2, $text-w-image-module-column-size) * 1%;
+				// @include width($text-w-image-module-column-size / 2, $grid-columns)
+				@include make-col($text-w-image-module-column-size / 2);
+			}
+		}
+
+		.text-w-image-image-container {
+			padding-left: 0;
+			padding-right: 0;
+			max-width: none;
+			flex: 1;
+			// max-width: cols-to-width-percent($text-w-image-module-column-size, $grid-columns) * 1%;
+			// width: 100%;
+			// flex-basis: cols-to-width-percent($text-w-image-module-column-size, $grid-columns) * 1%;
+			//
+			// @media screen and (min-width: 992px) {
+			// 	max-width: cols-to-width-percent(12, $text-w-image-module-column-size) * 1%;
+			// 	flex-basis: cols-to-width-percent(12, $text-w-image-module-column-size) * 1%;
+			// }
+
+			> img {
+				width: 100%;
+			}
+		}
+
+	// }
+
+	&.reverse {
+		.gs-module-column {
+			@media screen and (min-width: 768px) {
+				flex-direction: column;
+			}
+
+			@media screen and (min-width: 992px) {
+				flex-direction: row-reverse;
+			}
+
+			> * {
+				@media screen and (min-width: 992px) {
+					&:last-child {
+						padding-left: 0;
+						// padding-right: cols-to-width-percent(2, $text-w-image-module-column-size) * 1%;
+						@include make-col-offset-reverse(2);
+					}
+				}
+
+				// @media screen and (min-width: #{$max-column-width + cols-to-width-pixels(0.5, $grid-columns)}px) {
+				// 	&:first-child {
+				// 		padding-left: cols-to-width-percent(1, $text-w-image-module-column-size) * 1%;
+				// 	}
+				//
+				// 	&:last-child {
+				// 		padding-right: cols-to-width-percent(1, $text-w-image-module-column-size) * 1%;
+				// 	}
+				// }
+			}
+		}
+	}
+
+	&.full-bleed {
+		flex-direction: column;
+		padding-left: 0;
+		padding-right: 0;
+
+		.gs-module-container {
+			flex: 1;
+			display: flex;
+			max-width: none;
+			// padding-left: cols-to-width-percent(1, $grid-columns) * 1%;
+			@include make-col-offset(1);
+			padding-right: 0;
+		}
+
+		// .gs-module-row {
+		// 	flex: 1;
+		// 	display: flex;
+		// }
+
+		.gs-module-column {
+			max-width: none;
+			flex-basis: 100%;
+
+			@media screen and (min-width: 768px) {
+				flex-direction: row;
+			}
+		}
+
+		.text-w-image-content {
+
+			display: flex;
+			align-items: center;
+			padding-top: #{$module-v-padding}px;
+			padding-bottom: #{$module-v-padding}px;
+
+			padding-left: 0;
+			padding-right: 0;
+
+			@media screen and (min-width: 768px) {
+				// max-width: cols-to-width-percent($grid-columns * 0.65, $grid-columns) * 1%;
+				// flex-basis: cols-to-width-percent($grid-columns * 0.65, $grid-columns) * 1%;
+				// @include make-col()
+			}
+
+			@media screen and (min-width: 1200px) {
+				// max-width: cols-to-width-percent($grid-columns / 2, $grid-columns) * 1%;
+				// flex-basis: cols-to-width-percent($grid-columns / 2, $grid-columns) * 1%;
+			}
+		}
+
+		.text-w-image-image-container {
+			@media screen and (min-width: 768px) {
+				// padding-left: cols-to-width-percent(2, $text-w-image-module-column-size) * 1%;
+				@include make-col-offset(2);
+				padding-right: 0;
+			}
+		// 	padding-left: 0;
+		// 	padding-right: 0;
+		// 	// max-width: cols-to-width-percent(12, $grid-columns) * 1%;
+		// 	// flex-basis: cols-to-width-percent(12, $grid-columns) * 1%;
+		// 	max-width: none;
+		// 	flex: 1;
+		}
+
+		.text-w-image-image {
+			padding: 0;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 100%;
+			position: relative;
+
+
+			@media screen and (min-width: 768px) {
+				min-height: 100%;
+				height: 100%; // NOTE: required for Edge
+			}
+		}
+
+		&.reverse {
+			.gs-module-container {
+				padding-left: 0;
+				// padding-right: cols-to-width-percent(1, $grid-columns) * 1%;
+				@include make-col-offset-reverse(1);
+			}
+
+			.gs-module-column {
+				@media screen and (min-width: 768px) {
+					flex-direction: row-reverse;
+				}
+			}
+
+			.text-w-image-content {
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			.text-w-image-image-container {
+				@media screen and (min-width: 768px) {
+					padding-left: 0;
+					// padding-right: cols-to-width-percent(2, $text-w-image-module-column-size) * 1%;
+					@include make-col-offset-reverse(2);
+				}
+			}
+		}
+	}
+
+}
