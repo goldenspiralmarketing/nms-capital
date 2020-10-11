@@ -79,7 +79,7 @@
 		<!-- Google Site Verification -->
 		<!-- <meta name="google-site-verification" content="" /> -->
 
-		<link href="//fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Fira+Sans:ital@0;1&family=Inknut+Antiqua:wght@800&family=Montserrat:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
 
 		<script type="application/ld+json">

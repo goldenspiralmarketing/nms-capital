@@ -1,17 +1,23 @@
 // primary, secondary, tertiary, quaternary, quinary, septenary, octonary, nonary, denary
-$color-primary:				rgb( 53,  23,  79); // #35174f
+$color-primary:				rgb(46, 64, 87); // #2e4057
 $color-primary-dark:		darken($color-primary, 5%);
 $color-primary-light:		lighten($color-primary, 15%);
-$color-secondary:			rgb( 83, 149, 186); // #5395ba
+$color-secondary:			rgb(69, 92, 122); // #455D7B
 $color-secondary-dark:		darken($color-secondary, 15%);
 $color-secondary-light:		lighten($color-secondary, 15%);
+$color-tertiary: rgb(218, 92, 9); // #da5c09
 
-// $grayscale-black: 			rgb(  0,   0,   0); // #000000
-// $grayscale-gray-1:			rgb( 60,  60,  60); // #3C3C3C
-// $grayscale-gray-2:			rgb(245, 245, 245); // #F5F5F5
-// $grayscale-gray-3:			rgb(249, 249, 249); // #DCDCDC
-// $grayscale-white:			rgb(255, 255, 255); // #FFFFFF
-// $color-white: #ffffff;
+
+
+$grayscale-primary: rgb(198, 201, 208); // #c4c9cf
+$grayscale-secondary: rgb(119, 119, 119); // #767676
+$grayscale-white:			rgb(255, 255, 255); // #FFFFFF
+
+// aliases
+$color-accent: $color-tertiary;
+$color-quaternary: $grayscale-primary;
+$color-white: $grayscale-white;
+
 
 $background-gradient-primary:		linear-gradient(180deg, $color-primary, $color-primary-dark);
 $background-gradient-secondary:		linear-gradient(45deg, $color-secondary, $color-secondary-dark);
@@ -19,8 +25,15 @@ $background-gradient-secondary:		linear-gradient(45deg, $color-secondary, $color
 
 $color-error:				rgb(213,   0,   0); // #D50000
 
-$font-primary:				'Roboto', 'Helvetica', sans-serif;
-$font-secondary:			'Open Sans', 'arial', sans-serif;
+$font-primary:				'Fira Sans', 'Helvetica', sans-serif;
+$font-secondary:			'Inknut Antiqua', 'georgia', serif;
+$font-tertiary:			'Fira Code', monospace;
+$font-quaternary:			'Montserrat', 'Helvetica', sans-serif;
+
+//aliases
+$font-serif: $font-secondary;
+$font-monospace: $font-tertiary;
+
 
 
 // these variables can be updated per project

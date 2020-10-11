@@ -9,8 +9,8 @@ body {
 	font-family: $font-primary;
 	font-size: 16px;
 	color: $color-primary;
-	font-weight: normal;
-	line-height: 1.4;
+	font-weight: 400;
+	line-height: 1.5;
 }
 
 /**
@@ -18,11 +18,12 @@ body {
 **/
 .header-base {
 	font-family: $font-secondary;
-	color: $color-secondary;
-	font-weight: bold;
-	line-height: 1.4;
+	color: $color-primary;
+	font-weight: 800;
+	line-height: 1.2;
 	margin-top:1em;
 	margin-bottom:0.5em;
+	text-transform: uppercase;
 	&:first-child {
 		margin-top:0; // keep first item flush with top of parent
 	}
@@ -38,23 +39,24 @@ body {
 h1, h2, h3, h4, h5 {
 	@extend .header-base !optional;
 }
-h1, h2 {
-	line-height:1.1;
+h2 {
+	line-height:1.5;
 }
 // apply header class styles after base, to override
-.h1, .h2, .h3, .h4, .h5 {
+.h1, .h2, .h3, .h4, .h5, .title {
 	@extend .header-base !optional;
 }
-.h1, .h2 {
-	line-height:1.1;
+.h2 {
+	line-height:1.5;
 }
 
 // subheaders
 .s1, .s2, .s3, .s4, .s5 {
-	font-family:$font-primary;
-	color: $color-primary;
-	line-height:1.3;
+	font-family:$font-tertiary;
+	color: $grayscale-secondary;
+	line-height:1.5;
 	margin:0.4em 0 1em;
+	text-transform: uppercase;
 	.h1 + &, .h2 + &, .h3 + &, .h4 + &, .h5 + & {
 		margin-bottom:1.8em; // add margin for subheader under header
 	}
@@ -65,14 +67,14 @@ h1, h2 {
 	enter the size list (with unit type) and the desired element name,
 	and get a numbered list of headers with font sizes
 */
-@include header-sizes('h', (38px, 28px, 22px, 18px));
-@include header-sizes('.h', (38px, 28px, 22px, 18px));
-@include header-sizes('.s', (22px, 18px, 16px));
+@include header-sizes('h', (38px, 28px, 22px, 18px, 16px, 14px));
+@include header-sizes('.h', (38px, 28px, 22px, 18px, 16px, 14px));
+@include header-sizes('.s', (26px, 23px, 20px, 18px));
 
 @media screen and (min-width:768px){
-	@include header-sizes('h', (58px, 44px, 36px, 26px, 18px));
-	@include header-sizes('.h', (58px, 44px, 36px, 26px, 18px));
-	@include header-sizes('.s', (30px, 26px, 22px));
+	@include header-sizes('h', (40px, 36px, 32px, 28px, 24px, 20px));
+	@include header-sizes('.h', (40px, 36px, 32px, 28px, 24px, 20px));
+	@include header-sizes('.s', (32px, 28px, 24px, 20px));
 }
 
 a {
@@ -120,7 +122,7 @@ a {
  * BODY TEXT ----------------------------------------------
 **/
 a {
-	color:$color-secondary;
+	color: $color-secondary;
 	transition: all 0.3s ease;
 	&:hover {
 		opacity:0.8;
@@ -140,14 +142,14 @@ p {
 }
 
 .emphasis {
-	font-family:$font-primary;
-	font-weight:bold;
+	font-family: $font-quaternary;
+	font-weight: 500;
 	font-size: 1.2em;
-	color:$color-secondary;
+	color:$color-primary;
 }
 
 blockquote {
-	font-family: $font-secondary;
+	font-family: $font-quaternary;
 	font-size: 1.2em;
 	font-weight: bold;
 	border-radius: 0.5em;
