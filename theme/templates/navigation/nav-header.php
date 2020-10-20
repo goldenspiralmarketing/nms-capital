@@ -1,10 +1,10 @@
 <header class="site-header topped">
 	<div class="header-full">
 
-		<div class="header-full__container gs-container">
+		<div class="header-full__container">
 			<div class="nav-logo">
 				<?php
-				$logoSrc = get_stylesheet_directory_uri() .'/img/generic-logo.svg';
+				$logoSrc = get_stylesheet_directory_uri() .'/img/nms-logo-primary.svg';
 				if(get_field('activate_manual_styles', 'options') && get_field('header_logo', 'options')){
 					$logoSrc = get_field('header_logo', 'options')[url];
 				}
@@ -25,6 +25,19 @@
 				);
 				?>
 			</nav><!-- /.nav-header -->
+			<div class="nav-upper">
+				<div class="partner-link">
+					<?php
+					if(get_field('partner_login_url', 'options')):
+						$url = get_field('partner_login_url', 'options');
+					 ?>
+					<a href="<?=$url?>" target="_blank" class="text-color-accent">Partner Login</a>
+					<?php endif; ?>
+				</div>
+				<div class="menu-trigger">
+					Menu<span class="text-color-accent">+</span>
+				</div>
+			</div>
 
 			<?php /*<div class="nav-search-container">
 			<form class="form-search" action="<?php echo get_home_url(); ?>">

@@ -61,8 +61,17 @@
 		}
 	}
 
+	&.borderless, &.flat {
+		color: $color-accent;
+		background-color: transparent;
+		&:hover {
+			color: $color-accent;
+			background-color: rgba($grayscale-primary, .25);
+		}
+	}
+
 	&.small {
-		@extend .s5 !optional;
+		font-size: 16px;
 	}
 
 

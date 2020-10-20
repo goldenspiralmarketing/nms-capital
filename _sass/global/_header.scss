@@ -23,21 +23,29 @@ header {
 		min-height: 80px;
 		transition: transform .2s ease;
 		&__container {
-			display: flex;
+			// display: flex;
 			min-height: 80px;
 			align-items: center;
 			justify-content: space-between;
+			position: relative;
+			padding-left: 2rem;
+			padding-right: 2rem;
 		}
 
 		.nav-logo {
 			display: flex;
 			align-items: center;
 			transition: max-width 0.3s ease;
-			// margin-left: 1.5rem;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			margin-left: 2rem;
 			a {
 				display: inline-block;
 			}
 			img {
+				width: 100%;
 				max-width: 100px;
 
 				@media screen and (min-width: 992px) {
@@ -55,6 +63,14 @@ header {
 			flex: 1 1 0%;
 			position: relative;
 			display: none;
+			width: calc(100% - 410px);
+			margin-right: auto;
+			margin-left: auto;
+
+			@media screen and (max-width: 1200px){
+				width: calc(100% - 200px);
+				margin-right: 0;
+			}
 
 			@media screen and (min-width: $mobile-nav-max-width) {
 				display: flex;
@@ -65,8 +81,13 @@ header {
 				width: 100%;
 				text-align: right;
 				display: flex;
-				justify-content: flex-end;
+				justify-content: center;
 				height: 100%;
+				margin-bottom: 0;
+				padding-left: 0;
+				@media screen and (max-width: 1200px){
+					justify-content: flex-end;
+				}
 
 				> li {
 					display: inline-block;
@@ -75,11 +96,11 @@ header {
 
 					> a {
 						display: inline-block;
-						background-color: $white;
+						// background-color: $white;
 						transition: all 0.3s ease;
 						margin-bottom: 0;
-						font-family: $font-primary;
-						font-size: 16px;
+						font-family: $font-tertiary;
+						font-size: 17px;
 						color: $color-primary;
 						font-weight: normal;
 						line-height: 1.3;
@@ -90,14 +111,30 @@ header {
 						padding-top: 1.9em;
 						padding-right: 1.2vw;
 						padding-bottom: 1.8em;
+						@media screen and (min-width: 1200px) and (max-width: 1345px){
+							padding-left: 10px;
+							padding-right: 10px;
+							font-size: 1.3vw;
+						}
+						@media screen and (max-width: 1200px){
+							padding-right: 0;
+							padding-top: 2.3em;
+							padding-bottom: 2.3em;
+						}
+
+						@media screen and (min-width: 1560px){
+							font-size: 20px;
+						}
 
 						&:hover {
 							text-decoration: none;
-							background-color: $gray-100;
+							color: $color-tertiary;
 						}
 					}
 					&.current-menu-item > a {
-						box-shadow:inset 0 -2px 0 0 $color-primary;
+						@media screen and (min-width: 1201px){
+							box-shadow:inset 0 -2px 0 0 $color-primary;
+						}
 					}
 					&.menu-item-has-children {
 						position:relative;
@@ -142,6 +179,7 @@ header {
 					}
 				}
 			}
+
 			#menu-header-menu {
 				display: none;
 
@@ -152,6 +190,26 @@ header {
 			#menu-mobile-menu {
 				@media screen and (min-width: $mobile-nav-max-width) {
 					display: none;
+				}
+			}
+		}
+		.nav-upper {
+			font-family: $font-tertiary;
+			font-size: 16px;
+			position: absolute;
+			top: 8px;
+			right: 2rem;
+			.partner-link {
+				text-transform: uppercase;
+				display: inline-block;
+				padding-right: 30px;
+			}
+			.menu-trigger {
+				text-transform: uppercase;
+				font-family: $font-tertiary;
+				display: inline-block;
+				&:hover {
+					cursor: pointer;
 				}
 			}
 		}

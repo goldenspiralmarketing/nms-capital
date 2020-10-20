@@ -2,7 +2,7 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased !important;
 	-moz-osx-font-smoothing: grayscale;
-	text-shadow: 1px 1px 1px transparentize($grayscale-black, 0.996);
+	text-shadow: 1px 1px 1px transparentize(#000, 0.996);
 }
 
 // body, html {
@@ -83,4 +83,22 @@
 			}
 		}
 	}
+}
+
+// client-specific text flourishes, vertical text, etc
+.vertical-text,
+.text-vertical {
+	font-family: $font-tertiary;
+	color: $color-accent;
+	font-size: 16px;
+	display: inline-block;
+	text-transform: uppercase;
+		-ms-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+	-ms-transform-origin: left top 0;
+	-moz-transform-origin: left top 0;
+	-webkit-transform-origin: left top 0;
+	transform-origin: left top 0;
 }

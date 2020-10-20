@@ -36,14 +36,14 @@ body {
 }
 
 // apply base header styles
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
 	@extend .header-base !optional;
 }
 h2 {
 	line-height:1.5;
 }
 // apply header class styles after base, to override
-.h1, .h2, .h3, .h4, .h5, .title {
+.h1, .h2, .h3, .h4, .h5, .h6, .title {
 	@extend .header-base !optional;
 }
 .h2 {
@@ -57,7 +57,7 @@ h2 {
 	line-height:1.5;
 	margin:0.4em 0 1em;
 	text-transform: uppercase;
-	.h1 + &, .h2 + &, .h3 + &, .h4 + &, .h5 + & {
+	.h1 + &, .h2 + &, .h3 + &, .h4 + &, .h5 + &, .h6 + & {
 		margin-bottom:1.8em; // add margin for subheader under header
 	}
 }
@@ -144,8 +144,9 @@ p {
 .emphasis {
 	font-family: $font-quaternary;
 	font-weight: 500;
-	font-size: 1.2em;
 	color:$color-primary;
+	font-size: 2.31em;
+	line-height: 1.25;
 }
 
 blockquote {

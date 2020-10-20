@@ -1,6 +1,6 @@
 // primary, secondary, tertiary, quaternary, quinary, septenary, octonary, nonary, denary
 $color-primary:				rgb(46, 64, 87); // #2e4057
-$color-primary-dark:		darken($color-primary, 5%);
+$color-primary-dark:		rgb(21, 30, 41); //#151E29
 $color-primary-light:		lighten($color-primary, 15%);
 $color-secondary:			rgb(69, 92, 122); // #455D7B
 $color-secondary-dark:		darken($color-secondary, 15%);

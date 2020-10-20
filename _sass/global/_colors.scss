@@ -8,6 +8,9 @@
 	}
 	.text-color-#{$order} {
 		color: #{$var};
+		* {
+			color:#{$var};
+		}
 	}
 	.border-color-#{$order} {
 		border-color: #{$var};
@@ -28,6 +31,9 @@
 	}
 	.text-grayscale-#{$order}, .text-grayscale-#{$order} * {
 		color: #{$var};
+		* {
+			color:#{$var};
+		}
 	}
 	.border-grayscale-#{$order} {
 		border-color: #{$var};
