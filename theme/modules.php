@@ -13,3 +13,5 @@
 <?php get_template_part( 'templates/modules/grouping' ); ?>
 <?php get_template_part( 'templates/modules/text-w-form' ); ?>
 <?php get_template_part( 'templates/modules/team-listing' ); ?>
+<?php get_template_part( 'templates/modules/portfolio-listing' ); ?>
+<?php get_template_part( 'templates/modules/principles-listing' ); ?>

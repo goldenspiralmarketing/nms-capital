@@ -402,3 +402,8 @@ svg {
 	}
 
 }
+
+// client-specific first module padding for floating nav
+.gs-module[data-flexid="hero_module_0"] {
+	padding-top: 150px;
+}

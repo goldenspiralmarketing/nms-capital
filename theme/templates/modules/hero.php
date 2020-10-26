@@ -43,13 +43,18 @@
 
 					<div class="hero-content">
 						<div class="left-content">
+							<?php  if ( $style === 'centered' && get_sub_field('hero_title') ) : ?>
+								<div class="hero-title wysiwyg">
+									<?php the_sub_field('hero_title'); ?>
+								</div>
+							<?php endif; ?>
 							<div class="wysiwyg"><?php the_sub_field( 'hero_content_1' ); ?></div>
-							<?php if ( $style === 'centered' && $featured_image ) : ?>
+							<?php /* if ( $style === 'centered' && $featured_image ) : ?>
 								<div class="featured-image">
 									<?php $attrs = ! $lazy_load ? array() : array( 'class' => 'lazy' ); ?>
 									<?php echo wp_get_attachment_image( $featured_image['ID'], 'full', false, $attrs ); ?>
 								</div>
-							<?php endif; ?>
+							<?php endif; */ ?>
 						</div>
 						<div class="right-content">
 

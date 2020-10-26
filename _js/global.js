@@ -118,7 +118,7 @@ define( 'global', // module name
 		// 	} );
 		// }
 
-	
+
 
 		function scrollTrigger() {
 			$( '[class*="on-scroll"]' ).each( function ( i, elm ) {
@@ -413,7 +413,14 @@ define( 'global', // module name
 
 			magnific: function() {
 				if ( $( '.magnific' ).length ) $( '.magnific' ).magnificPopup();
+
+				console.log('magnificClose');
+				$('.mfp-close').on('click', function(){
+					$.magnificPopup.close();
+					console.log('magnific clicked');
+				});
 			},
+
 
 			slick: function() {
 				if ( $( '.slick' ).length ) {
