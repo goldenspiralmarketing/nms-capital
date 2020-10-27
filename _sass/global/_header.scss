@@ -11,17 +11,93 @@ header {
 		position: fixed;
 	}
 
+	.header-controls {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		min-height: 80px;
+		padding-top: 1.9rem;
+		padding-bottom: 1.8rem;
+		.nav-logo {
+			display: flex;
+			align-items: center;
+			transition: max-width 0.3s ease;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			margin-left: 4rem;
+			a {
+				display: inline-block;
+			}
+			img {
+				width: 100%;
+				max-width: 100px;
+
+				@media screen and (min-width: 992px) {
+					max-width: 150px;
+				}
+
+				@media screen and (min-width: 1200px) {
+					max-width: 197px;
+				}
+			}
+		}
+		.vertical-text {
+			position: absolute;
+	    top: 1em;
+	    left: 10px;
+	    transform: rotate(90deg) translate(0, -100%);
+		}
+		.nav-upper {
+			font-family: $font-tertiary;
+			font-size: 16px;
+			position: absolute;
+			top: 8px;
+			right: 2rem;
+			.partner-link {
+				text-transform: uppercase;
+				display: inline-block;
+				padding-right: 30px;
+			}
+			.menu-trigger {
+				text-transform: uppercase;
+				font-family: $font-tertiary;
+				display: inline-block;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
 
 	.header-full {
 		background-color: $white;
-		position: relative;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		z-index:99;
-		border-bottom: solid 1px darken($gray-100, 9.75%);
 		min-height: 80px;
 		transition: transform .2s ease;
+		opacity: 0;
+		pointer-events: none;
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,.2);
+		&.open {
+			opacity: 1;
+			pointer-events: all;
+		}
+		&.header-scroll {
+			opacity: 1;
+			pointer-events: all;
+			&.open {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
 		&__container {
 			// display: flex;
 			min-height: 80px;
@@ -108,9 +184,9 @@ header {
 						text-transform: uppercase;
 						// padding: 1.5em 1.2vw;
 						padding-left: 1.2vw;
-						padding-top: 1.9em;
+						padding-top: 1.9rem;
 						padding-right: 1.2vw;
-						padding-bottom: 1.8em;
+						padding-bottom: 1.8rem;
 						@media screen and (min-width: 1200px) and (max-width: 1345px){
 							padding-left: 10px;
 							padding-right: 10px;
@@ -245,6 +321,9 @@ header {
 			left: 0;
 			right: 0;
 			transition: transform .2s ease, opacity 0s ease;
+			body:not(.scrolled) & {
+				transform: translateY(0);
+			}
 			body.scrolled:not(.sub-menu-open) & {
 				transform: translateY(-100%);
 			}

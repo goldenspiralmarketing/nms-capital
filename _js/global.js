@@ -519,10 +519,15 @@ define( 'global', // module name
 						$(scrollHeader).addClass('header-scroll');
 						$(scrollHeader).appendTo('header.site-header');
 
-						// attach_nav_hover_submenu_events( 'menu-item-solutions' );
-						// attach_nav_hover_submenu_events( 'menu-item-company' );
-						// attach_nav_hover_submenu_events( 'menu-item-resources' );
-
+						$('.header-controls .menu-trigger').on('click', function(){
+							$('header.site-header .header-full').addClass('open');
+						});
+						$('.header-full .menu-trigger').on('click', function(){
+							$('header.site-header .header-full').removeClass('open');
+						});
+						$('.header-scroll .menu-trigger').on('click', function(){
+							$('.header-scroll').css('transform', 'translateY(-100%)');
+						});
 					}
 				}, 200);
 

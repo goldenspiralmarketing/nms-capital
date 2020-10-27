@@ -1,6 +1,23 @@
 <header class="site-header topped">
+	<div class="header-controls">
+		<div class="nav-logo">
+			<?php
+			$logoSrcWhite = get_stylesheet_directory_uri() .'/img/nms-logo-white.svg';
+			?>
+			<a href="/"><img src="<?php echo $logoSrcWhite; ?>" alt="site logo"></a>
+		</div>
+		<?php if (get_field('top_corner_tagline', 'options')): ?>
+		<div class="vertical-text">
+			<?php the_field('top_corner_tagline', 'options'); ?>
+		</div>
+		<?php endif; ?>
+		<div class="nav-upper">
+			<div class="menu-trigger">
+				<span class="text-grayscale-white">Menu</span> <span class="text-color-accent">+</span>
+			</div>
+		</div>
+	</div>
 	<div class="header-full">
-
 		<div class="header-full__container">
 			<div class="nav-logo">
 				<?php
@@ -35,7 +52,7 @@
 					<?php endif; ?>
 				</div>
 				<div class="menu-trigger">
-					Menu<span class="text-color-accent">+</span>
+					Menu <span class="text-color-accent">-</span>
 				</div>
 			</div>
 
