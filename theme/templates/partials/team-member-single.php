@@ -33,7 +33,7 @@ if(get_field('team_member_profile_background_image', 'options')){
 	</div>
 </div>
 <div id="popup-<?php the_ID(); ?>" class="mfp-hide team-member-popup">
-	<div class="team-member-popup__container bg-color-primary text-grayscale-white">
+	<div class="team-member-popup__container bg-color-primary">
 		<div class="mfp-close">
 			<span>Close</span> <span class="symbol text-color-tertiary">-</span>
 		</div>
