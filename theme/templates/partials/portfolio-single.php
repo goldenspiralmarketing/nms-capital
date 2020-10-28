@@ -4,7 +4,7 @@ if(get_field('team_member_profile_background_image', 'options')){
 	$details_background = get_field('team_member_profile_background_image', 'options')[url];
 }
 $title = get_the_title();
-$slug = slugify($title);
+$slug = $post->post_name;
 ?>
 
 <div class="portfolio">
@@ -143,8 +143,8 @@ $slug = slugify($title);
 							if( $contact ): ?>
 							<?php
 							$contact_title = get_the_title($contact->ID);
-							$contact_slug = slugify($contact_title); ?>
-							<a href="/team?member=<?=$contact_slug?>"><?=$contact_title?></a>
+							$contact_slug = $contact->post_name; ?>
+							<a href="/team?n=<?=$contact_slug?>"><?=$contact_title?></a>
 						<?php endif; ?>
 					<?php endwhile; endif; ?>
 				</div>

@@ -140,6 +140,7 @@ $team-listing-module-column-size: $grid-columns;
 				}
 				tr {
 					padding-bottom: 1em;
+					vertical-align: text-top;
 					td:first-of-type {
 						@extend .s5;
 						text-align: right;
@@ -148,10 +149,24 @@ $team-listing-module-column-size: $grid-columns;
 					}
 					td:last-of-type {
 						color: $color-tertiary;
+						ul {
+							list-style: none;
+							padding: 0;
+							li {
+								display: flex;
+								&:before {
+									content: '+';
+									display: inline-block;
+									margin-right: 1em;
+									color: $color-tertiary;
+								}
+							}
+						}
 						a {
 							color: $color-tertiary;
 							margin: 0;
 							@extend .s5;
+							display: inline;
 							&:hover {
 								color: $grayscale-white;
 							}

@@ -29,10 +29,14 @@ if(get_field('team_member_profile_background_image', 'options')){
 				?>
 			</div>
 		</div>
-		<a href="#popup-<?php the_ID(); ?>" class="magnific absolute-fill"></a>
+		<?php
+			$title = get_the_title();
+			$slug = $post->post_name;
+		 ?>
+		<a href="#<?=$slug?>" class="magnific absolute-fill"></a>
 	</div>
 </div>
-<div id="popup-<?php the_ID(); ?>" class="mfp-hide team-member-popup">
+<div id="<?=$slug?>" class="mfp-hide team-member-popup">
 	<div class="team-member-popup__container bg-color-primary">
 		<div class="mfp-close">
 			<span>Close</span> <span class="symbol text-color-tertiary">-</span>
@@ -119,26 +123,32 @@ if(get_field('team_member_profile_background_image', 'options')){
 							</td>
 						</tr>
 						<tr>
+							<?php
+							$portfolio = get_field('team_member_portfolio');
+							if( $portfolio ): ?>
 							<td>Current Portfolio:</td>
 							<td>
-								<?php
-								$portfolio = get_field('team_member_portfolio');
-								if( $portfolio ): ?>
-								<ul>
-									<?php foreach( $portfolio as $post ):
+									<?php if(have_rows('team_member_portfolio')): ?>
+										<ul>
+										<?php while (have_rows('team_member_portfolio')): the_row();
+										?>
+										<?php
+										$portfolio = get_sub_field('portfolio');
+										if( $portfolio ): ?>
+										<?php
+										$portfolio_title = get_the_title($portfolio->ID);
+										$portfolio_slug = $portfolio->post_name; ?>
+										<li><a href="/portfolio?n=<?=$portfolio_slug?>"><?=$portfolio_title?></a></li>
+									<?php endif; ?>
 
-										// Setup this post for WP functions (variable must be named $post).
-										setup_postdata($post); ?>
-										<li>
-											<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										</li>
-									<?php endforeach; ?>
-								</ul>
+								<?php endwhile; ?>
+									</ul>
+								<?php endif; ?>
 								<?php
 								// Reset the global post object so that the rest of the page works correctly.
 								wp_reset_postdata(); ?>
-							<?php endif; ?>
 						</td>
+					<?php endif; ?>
 					</tr>
 				</tbody>
 			</table>
