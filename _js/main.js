@@ -37,6 +37,7 @@ define( 'main', // module name
 			global.prepare_content_toggle();
 			global.prepare_tab_sections();
 			global.custom_stickiness();
+			global.url_params();
 			// global.follow_me();
 			// global.hamburger();
 			global.smooth_scroll();

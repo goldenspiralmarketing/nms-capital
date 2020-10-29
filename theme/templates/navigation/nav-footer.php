@@ -20,19 +20,31 @@ if(get_field('footer_background_image', 'options')){
 
 	<div class="footer-middle">
 		<div class="footer-middle__section footer-middle__section__left">
+			<?php
+			$args = array(
+	    'post_type' => 'principles',
+	    'orderby'   => 'rand',
+	    'posts_per_page' => 1
+	    );
+			$the_query = new WP_Query( $args );
+			if ( $the_query->have_posts() ):
+				while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 			<div id="footer-investment-principles">
 				<div class="vertical-text">
-					Investment Principle No.01
+					<?php the_title(); ?>
 				</div>
 				<div class="principle-single">
 					<div class="emphasis text-grayscale-primary">
-						The most important asset at every company we invest in is its people. We spend considerable resources to ensure our portfolio companies are great places to work.
+						<?php esc_html(the_content()); ?>
 					</div>
 					<div class="text-right mt-3">
-						<a href="#" class="button flat small">All Investment Principles</a>
+						<a href="/investment-principles/" class="button flat small">All Investment Principles</a>
 					</div>
 				</div>
 			</div>
+			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
+		<?php endif; ?>
 		</div>
 		<div class="footer-middle__section footer-middle__section__right">
 			<div class="footer-logo">

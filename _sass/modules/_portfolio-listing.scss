@@ -1,7 +1,9 @@
 .portfolio-listing-module {
-	.team-listing-container {
+	.portfolio-listing-container {
 		display: flex;
 		flex-wrap: wrap;
+		margin-left: -8px;
+		margin-right: -8px;
 	}
 	.portfolio {
 		flex: 0 0 33.3334%;

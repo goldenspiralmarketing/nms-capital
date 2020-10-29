@@ -10,7 +10,8 @@ if(get_field('team_member_profile_background_image', 'options')){
 		<div class="team-member__image bg-color-primary">
 			<?php
 			$treated_image = get_field('team_member_treated_image');
-			$original_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID), '' );
+			// $original_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID));
+			$original_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'large')[0];
 			?>
 			<div class="team-member__image__treated absolute-fill" style="background-image: url('<?=$treated_image['sizes'][large]?>');"></div>
 			<div class="team-member__image__hover absolute-fill bg-image bg-image-preload" style="background-image: url('<?=$original_image?>');"></div>

@@ -24,7 +24,8 @@
 			<div class="gs-module-container"><!-- container -->
 
 				<div class="gs-module-column"><!-- column -->
-					<div class="team-listing-container">
+					<?php get_template_part( 'templates/navigation/portfolio-nav'); ?>
+					<div class="portfolio-listing-container">
 						<?php
 
 						 $args = array(

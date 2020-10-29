@@ -121,6 +121,11 @@ footer {
 			margin-top: -2rem;
 			.principle-single {
 				padding-left: 2rem;
+				.emphasis {
+					strong {
+						font-weight: normal;
+					}
+				}
 				@media screen and (min-width: 992px) {
 					max-width: 690px;
 				}

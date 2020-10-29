@@ -37,6 +37,7 @@
 			<div class="gs-module-container"><!-- container -->
 
 				<div class="gs-module-column"><!-- column -->
+					<?php get_template_part( 'templates/navigation/team-nav'); ?>
 					<div class="team-listing-container">
 						<?php
 

@@ -171,6 +171,31 @@ define( 'global', // module name
 			};
 		}
 
+		function urlParams() {
+			if (_pageIsReady) {
+				if (window.location.search.indexOf('n=') > -1) {
+					var urlParams = new URLSearchParams(window.location.search);
+					var param = urlParams.get('n');
+					var portfolio_listing = $('.portfolio-listing-module');
+					var team_listing = $('.team-listing-module');
+					if (param.length) {
+						console.log('param length');
+						if (portfolio_listing.length || team_listing.length) {
+							console.log('portfolio or team listing page');
+							var id = '#' + param;
+							console.log(id);
+							$.magnificPopup.open({
+								items: {
+									src: $(id),
+									type: 'inline'
+								}
+							}, 0);
+						}
+					}
+				}
+			}
+		}
+
 		function scrollAnimation() {
 			if ( _pageIsReady ) {
 				svgDraw();
@@ -573,6 +598,7 @@ define( 'global', // module name
 			load_hsforms: function( cb ) {
 				load_hsforms( cb );
 			},
+			url_params: urlParams,
 			svg_draw: svgDraw,
 			scroll_trigger: scrollTrigger,
 			// animate_load_in: animateLoadIn,
