@@ -572,9 +572,9 @@ add_filter('acf/format_value/type=wysiwyg', 'iframe_wrapper', 10, 1);
 
 
 add_filter( 'widget_text', 'shortcode_unautop' ); // Remove <p> tags in Dynamic Sidebars (better!)
-add_filter( 'the_excerpt', 'shortcode_unautop' ); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
+// add_filter( 'the_excerpt', 'shortcode_unautop' ); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 remove_action( 'set_comment_cookies', 'wp_set_comment_cookies' );
-remove_filter( 'the_excerpt', 'wpautop' ); // Remove <p> tags from Excerpt altogether
+// remove_filter( 'the_excerpt', 'wpautop' ); // Remove <p> tags from Excerpt altogether
 remove_action( 'wp_print_styles', 'print_emoji_styles' ); // remove emoji support for comments
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); // remove emoji support for comments
 remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds

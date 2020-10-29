@@ -1,15 +1,28 @@
 .listing-section {
 	padding:$module-v-padding * 1em 0;
+	background: #F7F7F7;
 	.gs-container {
 		display:flex;
+		@media screen and (max-width: 767px) {
+			flex-direction: column-reverse;
+			flex-wrap: wrap;
+		}
 
 		.main-content {
 			flex:1 1 cols-to-width-percent(14, 24) * 1%;
-			margin-left:cols-to-width-percent(2, 24) * 1%;
+			margin-right:cols-to-width-percent(2, 24) * 1%;
+			@media screen and (max-width: 767px) {
+				flex: 0 0 100%;
+				margin-right: 0;
+			}
 		}
 		.sidebar-content {
 			flex:1 1 cols-to-width-percent(6, 24) * 1%;
 			margin-left: cols-to-width-percent(2, 24) * 1%;
+			@media screen and (max-width: 767px) {
+				flex: 0 0 100%;
+				margin-left: 0;
+			}
 		}
 	}
 }
@@ -20,6 +33,38 @@
 	.listing-item {
 		margin-bottom: 4em;
 		position: relative;
+		background: $grayscale-white;
+		transform: translateY(0);
+		box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.1),
+								2px 2px 3px -2px rgba(0, 0, 0, 0.1);
+		transition: all .2s ease;
+		&:hover {
+			transform: translateY(-10px);
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1),
+									0px 7px 15px -2px rgba(0, 0, 0, 0.1);
+		}
+		&-content-container {
+			padding: 3.5em;
+			position: relative;
+		}
+		.item-details {
+			font-family: $font-tertiary;
+			text-transform: uppercase;
+			span, span a {
+				color: $color-tertiary;
+			}
+		}
+		.item-title {
+			font-size: 20px;
+		}
+		.item-link {
+			position: absolute;
+			bottom: 1rem;
+			right: 1.25rem;
+			font-family: $font-tertiary;
+			text-transform: uppercase;
+			color: $color-tertiary;
+		}
 	}
 
 	.listing-item-image-container {
@@ -36,4 +81,16 @@
 	.item-link {
 		margin-top: auto;
 	}
+}
+.taxonomy-list {
+		list-style: none;
+		padding: 0;
+		font-family: $font-tertiary;
+		text-transform: uppercase;
+		a {
+			color: $color-accent;
+		}
+		li {
+			margin-bottom: 0.25rem;
+		}
 }

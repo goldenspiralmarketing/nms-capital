@@ -6,22 +6,25 @@
 
 	<main role="main">
 
-		<?php set_query_var( 'hero_alt_title', apply_filters( 'the_title', $page_for_posts_obj->post_title ) ); ?>
-		<?php set_query_var( 'hero_description', apply_filters( 'the_content', $page_for_posts_obj->post_content ) ); ?>
-		<?php get_template_part( 'templates/partials/hero', 'cpt' ); ?>
+		<?php if ( have_rows('page_modules', $page_for_posts_id) ) : ?>
+			<?php set_query_var( 'flex_counter', 0 ); ?>
+			<?php set_query_var( 'lazy_load_trigger', 3 ); ?>
+			<?php while ( have_rows('page_modules', $page_for_posts_id) ) : the_row(); ?>
+				<?php get_template_part( 'modules' ); ?>
+			<?php set_query_var( 'flex_counter', get_query_var( 'flex_counter' ) + 1 ); ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
 
 		<section class="listing-section">
 			<div class="gs-container">
+				<div class="sidebar-content">
+					<?php get_sidebar(); ?>
+				</div>
 				<div class="main-content">
 
 					<?php get_template_part( 'loop' ); ?>
 
 					<?php if ( function_exists( 'pagination' ) ) { pagination(); } ?>
-
-				</div>
-				<div class="sidebar-content">
-
-					<?php get_sidebar(); ?>
 
 				</div>
 			</div>

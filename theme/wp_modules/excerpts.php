@@ -1,6 +1,6 @@
 <?php
 add_action( 'init', 'gs_add_excerpts_to_pages' ); // add excerpt field to page post types
-add_filter( 'the_excerpt', 'do_shortcode' ); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
+ // add_filter( 'the_excerpt', 'do_shortcode' ); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
 
 function gs_add_excerpts_to_pages() {
 	add_post_type_support( 'page', 'excerpt' );
