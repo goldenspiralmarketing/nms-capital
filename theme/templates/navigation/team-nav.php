@@ -7,6 +7,7 @@
 			Location:
 		</div>
 		<select class="industry-dropdown" name="industry-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			<option>Select</option>
 			<option value="/team/">All</option>
 			<?php $locations = get_terms('location'); ?>
 			<?php foreach($locations as $location): ?>
@@ -19,6 +20,7 @@
 			Role:
 		</div>
 		<select class="fund-dropdown" name="fund-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			<option>Select</option>
 			<option value="/fund/">All</option>
 			<?php $roles = get_terms('role'); ?>
 			<?php foreach($roles as $role): ?>
@@ -31,6 +33,7 @@
 			Title:
 		</div>
 		<select class="status-dropdown" name="status-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			<option>Select</option>
 			<option value="/title/">All</option>
 			<?php $titles = get_terms('title'); ?>
 			<?php foreach($titles as $title): ?>

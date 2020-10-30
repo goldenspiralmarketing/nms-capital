@@ -17,7 +17,7 @@
 	}
 }
 
-@each $var, $order in ($grayscale-primary, primary), ($grayscale-secondary, secondary), ($grayscale-white, white) {
+@each $var, $order in ($grayscale-primary, primary), ($grayscale-secondary, secondary), ($grayscale-tertiary, tertiary), ($grayscale-white, white) {
 
 	.bg-grayscale-#{$order} {
 		background-color: #{$var};

@@ -52,7 +52,7 @@ $text-grid-gutter-size: $module-grid-gutter-size; // in number of columns
 		@media screen and (min-width: 992px) {
 			// single column text gets max width on larger screens
 			// for now I set this in ems to conform to max line-length reading spec via KE - KN
-			max-width: 45em;
+			max-width: 800px;
 		}
 
 		&.single-column-small {
@@ -142,13 +142,16 @@ $text-grid-gutter-size: $module-grid-gutter-size; // in number of columns
 	}
 
 	.text-column {
-		&:first-child {
-			padding-left: 0;
-		}
-
-		&:last-child {
-			padding-right: 0;
-		}
+		position: relative;
+		padding-left: 2em;
+		padding-right: 2em;
+		// &:first-child {
+		// 	padding-left: 0;
+		// }
+		//
+		// &:last-child {
+		// 	padding-right: 0;
+		// }
 
 
 		+ .text-column {

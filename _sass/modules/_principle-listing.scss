@@ -1,0 +1,37 @@
+.principle-listing-module {
+	.principles-listing-container {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 2em;
+		@media screen and (max-width: 767px) {
+			display: block;
+		}
+	}
+	.principle-single {
+		flex: 0 0 33.334%;
+		margin-bottom: 4em;
+		@media screen and (max-width: 1200px) {
+			flex: 0 0 50%;
+		}
+		&__container {
+			margin: 8px;
+			background: $color-secondary;
+			height: 100%;
+			position: relative;
+		}
+		&__content {
+			color: $grayscale-white;
+			padding: 4.5em 3.5em;
+			strong, b {
+				font-weight: normal;
+				border-bottom: 2px solid $color-accent;
+			}
+		}
+		&__image {
+			width: 110px;
+			position: absolute;
+			top: -40px;
+			left: -10px;
+		}
+	}
+}

@@ -136,6 +136,12 @@ a {
 		color: $color-primary;
 	}
 }
+.wysiwyg .button {
+	color: $grayscale-white;
+	&:hover {
+		color: $color-accent;
+	}
+}
 
 p {
 	margin-bottom: 1rem;
