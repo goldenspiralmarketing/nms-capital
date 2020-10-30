@@ -67,8 +67,8 @@ h2 {
 	enter the size list (with unit type) and the desired element name,
 	and get a numbered list of headers with font sizes
 */
-@include header-sizes('h', (38px, 28px, 22px, 18px, 16px, 14px));
-@include header-sizes('.h', (38px, 28px, 22px, 18px, 16px, 14px));
+@include header-sizes('h', (30px, 28px, 22px, 18px, 16px, 14px));
+@include header-sizes('.h', (30px, 28px, 22px, 18px, 16px, 14px));
 @include header-sizes('.s', (26px, 23px, 20px, 18px));
 
 @media screen and (min-width:768px){
@@ -126,6 +126,14 @@ a {
 	transition: all 0.3s ease;
 	&:hover {
 		opacity:0.8;
+	}
+}
+.wysiwyg a {
+	font-family: $font-tertiary;
+	color: $color-tertiary;
+	text-transform: uppercase;
+	&:hover {
+		color: $color-primary;
 	}
 }
 

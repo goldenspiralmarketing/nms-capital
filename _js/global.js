@@ -179,11 +179,8 @@ define( 'global', // module name
 					var portfolio_listing = $('.portfolio-listing-module');
 					var team_listing = $('.team-listing-module');
 					if (param.length) {
-						console.log('param length');
 						if (portfolio_listing.length || team_listing.length) {
-							console.log('portfolio or team listing page');
 							var id = '#' + param;
-							console.log(id);
 							$.magnificPopup.open({
 								items: {
 									src: $(id),
