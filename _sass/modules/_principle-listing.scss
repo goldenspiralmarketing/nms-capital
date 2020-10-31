@@ -21,7 +21,10 @@
 		}
 		&__content {
 			color: $grayscale-white;
-			padding: 4.5em 3.5em;
+			padding: 5.5em 3.5em 4.5em;
+			p:not([class]) {
+				font-size: 20px;
+			}
 			strong, b {
 				font-weight: normal;
 				border-bottom: 2px solid $color-accent;
@@ -30,7 +33,7 @@
 		&__image {
 			width: 110px;
 			position: absolute;
-			top: -40px;
+			top: -45px;
 			left: -10px;
 		}
 	}
