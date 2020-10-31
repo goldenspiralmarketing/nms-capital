@@ -4,10 +4,12 @@
 
 		<!-- Text Module -->
 		<?php
-		
+
 		// Define all vars
 		$module_default_classes = array( 'gs-module', 'text-module' );
 		$module_custom_classes = explode( ' ', get_sub_field( 'css_class' ) );
+		$module_text_size = get_sub_field('text_block_size');
+		$text_size = ' text-size-' . $module_text_size;
 
 		$classes = array_merge( $module_default_classes, $module_custom_classes );
 		$flex_id = get_row_layout() . '_' . get_query_var( 'flex_counter' );
@@ -17,7 +19,7 @@
 
 		?>
 
-		<section id="<?php the_sub_field( 'container_id' ); ?>" class="<?php echo implode( ' ', $classes ); ?>" data-flexid="<?php echo $flex_id; ?>">
+		<section id="<?php the_sub_field( 'container_id' ); ?>" class="<?php echo implode( ' ', $classes ); ?><?php echo $text_size; ?>" data-flexid="<?php echo $flex_id; ?>">
 
 			<div class="gs-module-container"><!-- container -->
 

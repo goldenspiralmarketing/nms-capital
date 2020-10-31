@@ -62,7 +62,7 @@ $mobile-nav-max-width: 1000px;
  *
  */
 
-// $spacing-base-size: to-fixed($base-size / 4);
+$spacing-base-size: to-fixed($base-size / 3);
 
 // ideally, these multipliers don't need to be udpated
 // (xxs, xs, sm, md, lg, xl)

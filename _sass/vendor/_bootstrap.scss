@@ -42,6 +42,7 @@ $dark:          $gray-800 !default;
 // extend the $spacers array
 $spacers: map-merge(
 	(
+		5: ($spacer * 6),
 		6: ($spacer * 8),
 		7: ($spacer * 12),
 		8: ($spacer * 20),

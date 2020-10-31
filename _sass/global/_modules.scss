@@ -75,7 +75,7 @@
 	@media screen and (min-width: 1440px) {
 		.hero-content {
 			flex-basis: 75%;
-	    max-width: 75%;
+			max-width: 75%;
 		}
 	}
 }
@@ -89,9 +89,134 @@
 		border-radius: 0;
 		min-height: 30vw;
 		padding: 5.5vw 10px;
+		background-color: $grayscale-tertiary;
 	}
 	.card-content {
 		justify-content: center;
 		padding: 4em 2em;
+	}
+}
+
+.icon-grid-module {
+	.gs-module-column {
+		max-width: 100%;
+		flex-basis: 100%;
+	}
+	.icon-grid {
+		&-item {
+			&-image {
+				width: 100% !important;
+				height: auto !important;
+			}
+			&-title {
+				@media screen and (min-width: 992px){
+					max-width: 85%;
+					font-size: 20px;
+					margin: auto;
+				}
+			}
+		}
+	}
+	&.icon-column-count-3 .icon-grid .icon-grid-item {
+		@media screen and (min-width: 551px) and (max-width: 991px){
+			flex: 0 0 50%;
+		}
+		@media screen and (max-width: 550px){
+			flex: 0 0 100%;
+		}
+	}
+}
+.text-module.text-size-large {
+	.text-column {
+		.wysiwyg {
+			.h1,.h2,.h3,.h4,.h5,.h6 {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+@media screen and (min-width: 992px) {
+	.text-module.text-size-large {
+		.text-columns-container {
+			margin-left: 0;
+			max-width: 740px;
+		}
+		.text-column {
+			margin-left: 0;
+			padding-left: 0;
+		}
+	}
+	.text-columns-container[data-columns="2"]{
+		.text-column:first-child {
+			margin-left: 0;
+			padding-left: 0;
+		}
+		.text-column:last-child {
+			margin-right: 0;
+			padding-right: 0;
+		}
+	}
+}
+.card {
+	border-radius: 0 !important;
+}
+#strategy-cards {
+	.gs-module-container {
+		max-width: 1650px;
+	}
+	@media screen and (min-width: 1201px) and (max-width: 1440px){
+		.card-content {
+			padding: calc(2rem + 2vw);
+		}
+	}
+	.card-content {
+		padding: 4em;
+		strong {
+			color: $color-tertiary;
+		}
+	}
+	@media screen and (min-width: 992px) and (max-width: 1200px) {
+		.card-content {
+			padding: 2em;
+		}
+		.card-title {
+			font-size: 1.7vw;
+		}
+	}
+}
+.text-w-image-module.full-bleed {
+	position: relative;
+	@media screen and (min-width: 991px) {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+	.gs-module-container {
+		max-width: 1440px;
+		margin: auto;
+		padding-right: 4.16667%;
+	}
+	.text-w-image-content {
+		position: relative;
+		z-index: 2;
+	}
+	&.wide-text .text-w-image-content {
+		flex: 0 0 100%;
+		max-width: 900px;
+	}
+	.text-w-image-image-container {
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		z-index: 1;
+	}
+	.text-w-image-image {
+		padding-top: 0 !important;
+		@media screen and (max-width: 1200px) {
+			opacity: .45;
+		}
 	}
 }

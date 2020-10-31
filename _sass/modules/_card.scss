@@ -93,6 +93,7 @@ $card-module-column-size: $grid-columns;
 				left: 0;
 				bottom: 0;
 				z-index: 1;
+				pointer-events: none;
 
 				> * {
 					background-repeat: no-repeat;

@@ -349,8 +349,9 @@ svg {
 
 /* Components */
 .card {
-	background: $gray-100;
+	background: $grayscale-white;
 	@extend .box-shadow !optional;
+	border-radius: 0;
 }
 
 .gs-grid {
@@ -406,4 +407,13 @@ svg {
 // client-specific first module padding for floating nav
 .gs-module[data-flexid="hero_module_0"] {
 	padding-top: 150px;
+}
+
+@media screen and (min-width: 991px) {
+	.pt-5 {
+		padding-top: 5.5rem !important;
+	}
+	.pb-5 {
+		padding-bottom: 5.5rem !important;
+	}
 }
