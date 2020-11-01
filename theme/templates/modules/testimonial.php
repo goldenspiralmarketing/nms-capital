@@ -27,6 +27,14 @@
 			<div class="gs-module-container"><!-- container -->
 				<div class="gs-module-column"><!-- column -->
 
+					<?php if(get_sub_field('testimonial_left')): ?>
+						<div class="testimonial-left">
+							<div class="wysiwyg">
+								<?php echo get_sub_field('testimonial_left'); ?>
+							</div>
+						</div>
+					<?php endif; ?>
+
 					<?php $slick_settings = '{"autoplay": false, "slidesToShow": 1, "slidesToScroll": 1, "dots": true, "arrows": false, "autoplaySpeed": 5000, "speed": 1500}'; ?>
 					<div class="slide-container slick <?php echo $slides_classes; ?>" data-slick='<?php echo $slick_settings; ?>'>
 
@@ -41,7 +49,7 @@
 										<span class="quote-mark">&ldquo;</span>
 
 										<div class="slide-content-container">
-											<div class="slide-content h2"><?php echo $content; ?></div>
+											<div class="slide-content"><?php echo $content; ?></div>
 											<div class="slide-attribution-container">
 
 												<?php if ( $attribution_image ) : ?>
@@ -51,12 +59,11 @@
 
 												<?php if ( get_sub_field( 'testimonials_testimonial_attribution_name' ) || get_sub_field( 'testimonials_testimonial_attribution_title' ) ) : ?>
 													<div class="slide-attribution">
-														<div class="s3">&mdash;</div>
-														<?php if ( get_sub_field( 'testimonials_testimonial_attribution_name' ) ) : ?>
-															<div class="s3"><?php the_sub_field( 'testimonials_testimonial_attribution_name' ); ?>,</div>
-														<?php endif; ?>
 														<?php if ( get_sub_field( 'testimonials_testimonial_attribution_title' ) ) : ?>
-															<div class="s3"><?php the_sub_field( 'testimonials_testimonial_attribution_title' ); ?></div>
+															<div class="s5 slide-attribution__title"><?php the_sub_field( 'testimonials_testimonial_attribution_title' ); ?></div>
+														<?php endif; ?>
+														<?php if ( get_sub_field( 'testimonials_testimonial_attribution_name' ) ) : ?>
+															<div class="text-left slide-attribution__signature"><?php the_sub_field( 'testimonials_testimonial_attribution_name' ); ?></div>
 														<?php endif; ?>
 													</div>
 												<?php endif; ?>
