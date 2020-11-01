@@ -1,7 +1,9 @@
 
 			</div><!-- /.wrapper -->
 		</div><!-- /#barba-wrapper -->
-
+		<?php if(get_field('show_subfooter_ctas')): ?>
+			<?php include('templates/modules/sub-footer-ctas.php') ?>
+		<?php endif; ?>
 		<?php get_template_part( 'templates/navigation/nav', 'footer' ); ?>
 
 		<?php wp_footer(); ?>
