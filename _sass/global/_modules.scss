@@ -220,3 +220,47 @@
 		}
 	}
 }
+// complex home page text-w-image styling
+.text-w-image-module {
+	.text-w-image-content.has-badge {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		@media screen and (min-width: 1440px) {
+			// padding-top: 75px;
+		}
+		.badge {
+			width: 122px;
+			margin-left: -3vw;
+			@media screen and (min-width: 1440px) {
+				margin-left: -5vw;
+			}
+			@media screen and(max-width: 991px){
+				margin-left: 0;
+			}
+		}
+	}
+	.text-w-image-floating-container {
+		position: relative;
+		z-index: 3;
+		@media screen and (min-width: 991px){
+			padding-top: 120px;
+		}
+		.text-w-image-floating-image {
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 374px;
+			height: 132px;
+		}
+	}
+}
+@media screen and (max-width: 991px){
+	.text-w-image-module .gs-module-column {
+		flex-wrap: wrap;
+	}
+}
+.text-w-image-module.full-bleed .text-w-image-image {
+	min-height: 100%;
+	height: 100%;
+}

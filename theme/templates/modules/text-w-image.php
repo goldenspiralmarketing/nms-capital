@@ -43,7 +43,17 @@
 
 				<div class="gs-module-column"><!-- column -->
 
-					<div class="text-w-image-content">
+					<?php $badge_class = ''; ?>
+					<?php if ( get_sub_field( 'text_w_image_badge' ) ) {$badge_class = " has-badge";} ?>
+					<div class="text-w-image-content<?=$badge_class?>">
+						<?php if ( get_sub_field( 'text_w_image_badge' ) ) : ?>
+							<?php
+								$the_badge = get_sub_field( 'text_w_image_badge' );
+								?>
+								<div class="badge">
+									<img src="<?=$the_badge[url]?>" alt="<?=$the_badge[alt]?>">
+								</div>
+						<?php endif; ?>
 						<?php if ( get_sub_field( 'text_w_image_content' ) ) : ?>
 							<?php
 								$the_content = get_sub_field( 'text_w_image_content' );
@@ -68,6 +78,31 @@
 							<?php endif; ?>
 						<?php endif; ?>
 					</div>
+					<?php if ( get_sub_field( 'text_w_image_add_floating_image' ) || get_sub_field( 'text_w_image_add_floating_text' ) ) : ?>
+						<div class="text-w-image-floating-container">
+							<?php if ( get_sub_field( 'text_w_image_floating_image' )):
+								$floating_image = get_sub_field( 'text_w_image_floating_image' )[url]; ?>
+								<div class="text-w-image-floating-image" style="background-image: url('<?=$floating_image?>');">
+									<?php if(get_sub_field( 'text_w_image_add_floating_text' )):
+										$text_left = get_field('text_w_image_floating_text_left');
+										$text_right = get_field('text_w_image_floating_text_right');
+										$text_button = get_field('text_w_image_floating_button_text');
+										$text_button_url = get_field('text_w_image_floating_button_url');
+										 ?>
+										 <div class="floating-text floating-text--left">
+										 	<?=$text_left?>
+										 </div>
+										 <div class="floating-text floating-text--right">
+										 	<?=$text_right?>
+										 </div>
+										 <a href="<?=$text_button_url?>" class="floating-text floating-text--button">
+										 		<?=$text_button?>
+										 </a>
+									<?php endif; ?>
+								</div>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
 
 				</div><!-- column -->
 
