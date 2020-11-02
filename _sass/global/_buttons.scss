@@ -91,7 +91,7 @@ input[type="reset"] {
 }
 
 
-.tag {
+*:not(body).tag {
 	font-family: $font-secondary;
 	font-weight: 600;
 	text-transform: uppercase;

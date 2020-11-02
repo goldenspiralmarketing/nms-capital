@@ -31,7 +31,7 @@
 			<?php //if($style === 'simple' && $featured_image): ?>
 			<?php if($featured_image): ?>
 				<?php if( ! $lazy_load ): ?>
-					<div class="bg-image absolute-fill bg-image-preload" style="background: url(<?php echo $featured_image['sizes']['extra-large']; ?>) no-repeat center/cover;"></div>
+					<div class="bg-image absolute-fill" style="background: url(<?php echo $featured_image['sizes']['extra-large']; ?>) no-repeat center/cover;"></div>
 				<?php else: ?>
 					<div class="bg-image absolute-fill" data-style="background: url(<?php echo $featured_image['sizes']['extra-large']; ?>) no-repeat center/cover;"></div>
 				<?php endif; ?>

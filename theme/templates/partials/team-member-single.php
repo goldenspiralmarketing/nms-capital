@@ -1,7 +1,7 @@
 <?php
 $details_background = '';
 if(get_field('team_member_profile_background_image', 'options')){
-	$details_background = get_field('team_member_profile_background_image', 'options')[url];
+	$details_background = get_field('team_member_profile_background_image', 'options');
 }
 ?>
 
@@ -44,8 +44,8 @@ if(get_field('team_member_profile_background_image', 'options')){
 		</div>
 		<div class="team-member-popup__profile team-member-popup__half">
 			<div class="profile-background">
-				<img class="profile-background__treated image-preload" src="<?=$treated_image['url']?>">
-				<div class="profile-background__hover absolute-fill bg-image bg-image-preload" style="background-image: url('<?=$original_image?>');"></div>
+				<img class="profile-background__treated image-preload" src="<?=$treated_image['sizes']['team']?>">
+				<div class="profile-background__hover absolute-fill" style="background-image: url('<?=$original_image?>');"></div>
 				<div class="profile-background__fade"></div>
 			</div>
 			<div class="profile-container">
@@ -59,7 +59,7 @@ if(get_field('team_member_profile_background_image', 'options')){
 		</div>
 		<div class="team-member-popup__details team-member-popup__half">
 			<div class="details-background">
-				<div class="details-background__image absolute-fill" style="background-image: url('<?=$details_background?>')"></div>
+				<div class="details-background__image absolute-fill" style="background-image: url('<?=$details_background['sizes']['large']?>')"></div>
 				<div class="details-background__fade"></div>
 			</div>
 			<div class="details__container">

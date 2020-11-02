@@ -21,10 +21,10 @@
 		</div>
 		<select class="fund-dropdown" name="fund-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
 			<option>Select</option>
-			<option value="/fund/">All</option>
+			<option value="/portfolio/">All</option>
 			<?php $funds = get_terms('fund'); ?>
 			<?php foreach($funds as $fund): ?>
-				<option value="/industry/<?=$fund->slug?>"><?=$fund->name?></option>
+				<option value="/fund/<?=$fund->slug?>"><?=$fund->name?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>

@@ -15,7 +15,7 @@ $slug = $post->post_name;
 			$original_image = get_the_post_thumbnail_url($post->ID,'portfolio');
 			?>
 			<div class="portfolio__image__gray absolute-fill" style="background-image: url('<?=$gray_image['sizes']['portfolio']?>');"></div>
-			<div class="portfolio__image__hover absolute-fill bg-image bg-image-preload" style="background-image: url('<?=$original_image?>');"></div>
+			<div class="portfolio__image__hover absolute-fill" style="background-image: url('<?=$original_image?>');"></div>
 		</div>
 		<div class="portfolio__title">
 			<div class="portfolio-location">
@@ -158,7 +158,7 @@ $slug = $post->post_name;
 					}
 					$args = array(
 					// 'post_type' => 'any',
-					'posts_per_page'	=> -1,
+					'posts_per_page'	=> 3,
 					 'orderby'			=> 'date',
 					 'order'				=> 'DESC',
 					 // 'tag__in'			=> 'array(\'' . $single . '\')'
@@ -168,6 +168,7 @@ $slug = $post->post_name;
 					// print_r($the_query);
 
 				 ?>
+				 <?php if ( $the_query->have_posts() ): ?>
 			<div class="details-single">
 				<div class="">
 					In The News:
@@ -180,9 +181,13 @@ $slug = $post->post_name;
 							</li>
 						<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
 							<?php wp_reset_query(); ?>
+							<li class="news-links__single mt-3">
+								<a href="/tag/<?=$array[0]?>">More News »</a>
+							</li>
 						</ul>
 				</div>
 			</div>
+			<?php endif; ?>
 			<?php endif; ?>
 		</div>
 	</div>

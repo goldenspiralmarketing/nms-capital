@@ -71,7 +71,7 @@
 									// add preload class if NOT lazy-loaded
 									$bg_class = $lazy_load ? '' : 'bg-image-preload';
 								?>
-								<div class="text-w-image-image absolute-fill <?=$bg_class?>" <?php echo $data_attr; ?>style="background-image:url('<?php echo $img['url']; ?>'); background-position: <?=$position?>; background-size: <?=$bg_size?>; <?=$ratio?>" <?=$ratio_lazy?>></div>
+								<div class="text-w-image-image absolute-fill <?=$bg_class?>" <?php echo $data_attr; ?>style="background-image:url('<?php echo $img['sizes']['extra-large']; ?>'); background-position: <?=$position?>; background-size: <?=$bg_size?>; <?=$ratio?>" <?=$ratio_lazy?>></div>
 							<?php else : ?>
 								<?php $attrs = ! $lazy_load ? array( 'class' => 'image-preload on-scroll-fade-up') : array( 'class' => 'lazy on-scroll-fade-up' ); ?>
 								<?php echo wp_get_attachment_image( $img['ID'], 'full', false, $attrs ); ?>
