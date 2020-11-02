@@ -15,6 +15,7 @@
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php /* ?>
 	<div class="portfolio-nav__fund categories-nav__single">
 		<div class="category-title">
 			Fund:
@@ -28,6 +29,7 @@
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php */ ?>
 	<div class="portfolio-nav__status categories-nav__single">
 		<div class="category-title">
 			Status:

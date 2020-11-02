@@ -172,6 +172,10 @@ footer {
 				display: flex;
 				text-align: left;
 			}
+			.sub-footer__links {
+				flex-grow: 1;
+				text-align: right;
+			}
 		}
 		background: $color-primary-dark;
 		color: $grayscale-white;
