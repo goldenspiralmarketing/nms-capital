@@ -53,8 +53,8 @@
 											<div class="slide-attribution-container">
 
 												<?php if ( $attribution_image ) : ?>
-													<?php $data_attr = $lazy_load ? 'data-' : ''; ?>
-													<div class="slide-content attribution-image" <?php echo $data_attr; ?>style="background-image:url('<?php echo $attribution_image['sizes']['medium']; ?>'); background-size:cover;"></div>
+													<?php // $data_attr = $lazy_load ? 'data-' : ''; ?>
+													<img class="slide-content attribution-image" src="<?php echo $attribution_image['sizes']['large']; ?>">
 												<?php endif; ?>
 
 												<?php if ( get_sub_field( 'testimonials_testimonial_attribution_name' ) || get_sub_field( 'testimonials_testimonial_attribution_title' ) ) : ?>

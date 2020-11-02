@@ -297,7 +297,7 @@
 				color: $color-tertiary;
 			}
 			&__signature {
-				font-family: 'Almondita', cursive;
+				// font-family: 'Almondita', cursive;
 				font-size: 50px;
 				-webkit-text-stroke: 1px $color-primary;
 				line-height: 35px;
@@ -318,11 +318,19 @@
 	&:not(.full-bleed) {
 		.slide-attribution {
 			max-width: 100%;
-			flex: 0 0 100%;
+			// flex: 0 0 100%;
 			&-container {
 				padding-top: 0;
 			}
 		}
+	}
+
+	.testimonial-slide .attribution-image {
+		width: 225px;
+		height: auto;
+		border-radius: 0;
+		background-color: transparent;
+		margin-top: 1rem;
 	}
 
 	.quote-mark {
