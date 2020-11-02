@@ -149,9 +149,23 @@
 				font-family: $font-tertiary;
 				text-transform: uppercase;
 				margin-right: 0.5em;
+				flex-shrink: 0;
 			}
 			div:last-of-type {
 				color: $color-tertiary;
+			}
+			ul {
+				list-style: none;
+				padding-left: 0;
+				li {
+					display: flex;
+					&:before {
+						content: '+';
+						color: $color-tertiary;
+						display: inline-block;
+						margin-right: 1em;
+					}
+				}
 			}
 		}
 	}

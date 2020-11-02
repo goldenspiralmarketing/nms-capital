@@ -152,36 +152,36 @@ $slug = $post->post_name;
 			<?php if(get_field('portfolio_in_the_news')): ?>
 				<?php
 					$news_ids = get_field('portfolio_in_the_news');
-					$single = $news_ids[0];
-					$news_string = implode(',',$news_ids);
+					$array = array();
+					foreach ($news_ids as $news_id) {
+						$array[] =  $news_id->slug;
+					}
 					$args = array(
 					// 'post_type' => 'any',
 					'posts_per_page'	=> -1,
-					//  'orderby'			=> 'date',
-					//  'order'				=> 'DESC',
+					 'orderby'			=> 'date',
+					 'order'				=> 'DESC',
 					 // 'tag__in'			=> 'array(\'' . $single . '\')'
-					 'tag' => 'aad'
+					 'tag' => $array
 					);
 					$the_query = new WP_Query( $args );
-					print_r($the_query);
-					$posts = get_posts($args);
-					print_r ($posts);
-					foreach ($posts as $post ) {
-						print_r($post);
-					}
+					// print_r($the_query);
+
 				 ?>
 			<div class="details-single">
 				<div class="">
 					In The News:
 				</div>
-				<ul class="news-links">
-					<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-						<li class="news-links__single">
-							<a href="<?php the_permalink(); ?>">+ <?php the_title(); ?></a>
-						</li>
-					<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
-						<?php wp_reset_query(); ?>
-				</ul>
+				<div class="">
+					<ul class="news-links">
+						<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+							<li class="news-links__single">
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</li>
+						<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
+							<?php wp_reset_query(); ?>
+						</ul>
+				</div>
 			</div>
 			<?php endif; ?>
 		</div>

@@ -123,7 +123,7 @@
 
 		<!-- main site wrapper -->
 		<?php
-			$transitions = 'false';
+			$transitions = 'true';
 			if (get_field('page_transitions', 'options')){
 				$transitions = 'true';
 			} ?>
