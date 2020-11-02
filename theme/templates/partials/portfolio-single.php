@@ -12,9 +12,9 @@ $slug = $post->post_name;
 		<div class="portfolio__image">
 			<?php
 			$gray_image = get_field('portfolio_alternate_logo');
-			$original_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID));
+			$original_image = get_the_post_thumbnail_url($post->ID,'portfolio');
 			?>
-			<div class="portfolio__image__gray absolute-fill" style="background-image: url('<?=$gray_image['sizes'][large]?>');"></div>
+			<div class="portfolio__image__gray absolute-fill" style="background-image: url('<?=$gray_image['sizes']['portfolio']?>');"></div>
 			<div class="portfolio__image__hover absolute-fill bg-image bg-image-preload" style="background-image: url('<?=$original_image?>');"></div>
 		</div>
 		<div class="portfolio__title">

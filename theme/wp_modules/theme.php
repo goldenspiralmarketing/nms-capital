@@ -19,6 +19,8 @@ function gs_add_theme_support() {
 	// Add Thumbnail Theme Support
 	add_theme_support('post-thumbnails');
 	add_image_size('extra-large', 1600, '', false);
+	add_image_size('team', 1200, '', false);
+	add_image_size('portfolio', 705, '', false);
 	add_image_size('thumbnail-square', 500, 500, true);
 
 	// Enables post and comment RSS feed links to head

@@ -1,7 +1,7 @@
 <?php
 $footer_img = '';
 if(get_field('footer_background_image', 'options')){
-	$footer_img = get_field('footer_background_image', 'options')[url];
+	$footer_img = get_field('footer_background_image', 'options')['sizes']['extra-large'];
 }
 ?>
 <footer style="background-image: url('<?=$footer_img?>');">
