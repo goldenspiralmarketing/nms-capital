@@ -30,7 +30,9 @@ html {
 		}
 	}
 }
-
+html.preload .slide-container .testimonial-slide:not(:first-child){
+display:none;
+}
 
 
 body {

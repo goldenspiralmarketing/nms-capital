@@ -15,3 +15,4 @@
 <?php get_template_part( 'templates/modules/team-listing' ); ?>
 <?php get_template_part( 'templates/modules/portfolio-listing' ); ?>
 <?php get_template_part( 'templates/modules/principles-listing' ); ?>
+<?php get_template_part( 'templates/modules/layered' ); ?>
