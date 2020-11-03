@@ -46,6 +46,9 @@
 		&-content-container {
 			padding: 3.5em;
 			position: relative;
+			@media screen and (max-width: 767px){
+				padding: 1.5rem 1.5rem 2.5rem;
+			}
 		}
 		.item-details {
 			font-family: $font-tertiary;
@@ -56,6 +59,9 @@
 		}
 		.item-title {
 			font-size: 20px;
+			@media screen and (max-width: 767px){
+				font-size: 18px;
+			}
 		}
 		.item-link {
 			position: absolute;

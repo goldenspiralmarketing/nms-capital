@@ -84,6 +84,9 @@
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: auto 90%;
+			@media screen and (max-width: 767px){
+				background-size: contain;
+			}
 		}
 	}
 	&__container {
@@ -98,6 +101,9 @@
 	&__profile {
 		position: relative;
 		padding: 4.5em 4em;
+		@media screen and (max-width: 767px){
+			padding: 2em 1.25em;
+		}
 		.profile-overview {
 			margin-top: 2em;
 			> * {
@@ -115,6 +121,9 @@
 	&__details {
 		position: relative;
 		padding: 4.5em 4em;
+		@media screen and (max-width: 767px){
+			padding: 2em 1.25em;
+		}
 		.details-background {
 			position: absolute;
 			top: 0;
@@ -136,6 +145,9 @@
 			display: flex;
 			color: $color-tertiary;
 			margin-bottom: 1em;
+			@media screen and (max-width: 767px) {
+				display: block;
+			}
 			a {
 				color: $color-tertiary;
 				font-family: $font-tertiary;

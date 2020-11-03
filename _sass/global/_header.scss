@@ -50,6 +50,9 @@ header {
 	    top: 1em;
 	    left: 10px;
 	    transform: rotate(90deg) translate(0, -100%);
+			@media screen and (max-width: 767px){
+				display: none;
+			}
 		}
 		.nav-upper {
 			font-family: $font-tertiary;
