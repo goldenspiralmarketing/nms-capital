@@ -80,9 +80,17 @@ if(get_field('footer_background_image', 'options')){
 				<span>Copyright &copy; <?php echo date( 'Y' ); ?> NMS Capital, LLC. All rights reserved.</span>
 			</div>
 			<div class="sub-footer__links">
+				<?php
+				$overview = '';
+				if(get_field('overview_document', 'options')):
+					$overview = get_field('overview_document', 'options');
+					?>
+				<a href="<?php echo $overview; ?>" target="_blank">Our Overview</a> •
+				<?php endif; ?>
 				<a href="/privacy-policy/">Privacy Policy</a> •
 				<a href="/terms-of-service/">Terms of Use</a> •
 				<?php
+				$url = '';
 				if(get_field('partner_login_url', 'options')):
 					$url = get_field('partner_login_url', 'options');
 					?>

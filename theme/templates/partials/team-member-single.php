@@ -20,7 +20,7 @@ if(get_field('team_member_profile_background_image', 'options')){
 			<div class="member-name"><?php the_title(); ?></div>
 			<div class="member-title">
 				<?php
-				$terms = get_the_terms( $post->ID , 'title' );
+				$terms = get_the_terms( $post->ID , 'member_title' );
 				$i = 1;
 				foreach ( $terms as $term ) {
 					echo $term->name;
@@ -97,7 +97,7 @@ if(get_field('team_member_profile_background_image', 'options')){
 							<td>Title:</td>
 							<td>
 								<?php
-								$terms = get_the_terms( $post->ID , 'title' );
+								$terms = get_the_terms( $post->ID , 'member_title' );
 								$i = 1;
 								foreach ( $terms as $term ) {
 									echo $term->name;

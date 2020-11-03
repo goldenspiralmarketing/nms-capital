@@ -28,6 +28,9 @@ footer {
 			padding-right: 0;
 			max-width: 1440px;
 		}
+		@media screen and (max-width: 1000px){
+			display: none;
+		}
 
 		hr {
 			border-color: darken($gray-100, 10%);
@@ -168,13 +171,16 @@ footer {
 			padding-left: 2rem;
 			padding-right: 2rem;
 			text-align: center;
-			@media screen and (min-width: 992px){
+			@media screen and (min-width: 1101px){
 				display: flex;
 				text-align: left;
 			}
 			.sub-footer__links {
 				flex-grow: 1;
 				text-align: right;
+				@media screen and (max-width: 1100px){
+					text-align: center;
+				}
 			}
 		}
 		background: $color-primary-dark;

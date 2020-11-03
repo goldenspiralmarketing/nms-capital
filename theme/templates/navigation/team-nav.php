@@ -21,7 +21,7 @@
 		</div>
 		<select class="fund-dropdown" name="fund-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
 			<option>Select</option>
-			<option value="/fund/">All</option>
+			<option value="/role/">All</option>
 			<?php $roles = get_terms('role'); ?>
 			<?php foreach($roles as $role): ?>
 				<option value="/role/<?=$role->slug?>"><?=$role->name?></option>
@@ -35,9 +35,9 @@
 		<select class="status-dropdown" name="status-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
 			<option>Select</option>
 			<option value="/title/">All</option>
-			<?php $titles = get_terms('title'); ?>
+			<?php $titles = get_terms('member_title'); ?>
 			<?php foreach($titles as $title): ?>
-				<option value="/title/<?=$title->slug?>"><?=$title->name?></option>
+				<option value="/member_title/<?=$title->slug?>"><?=$title->name?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>
