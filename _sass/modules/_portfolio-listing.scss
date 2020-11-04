@@ -97,6 +97,9 @@
 	}
 	&__half {
 		flex: 0 0 50%;
+		@media screen and (min-width: 992px){
+			max-width: 50%;
+		}
 	}
 	&__profile {
 		position: relative;
@@ -200,4 +203,16 @@
 			position: fixed;
 		}
 	}
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+ .details-single {
+	 display: block !important;
+	 div:first-of-type {
+		 display: inline-block;
+	 }
+	 div:last-of-type {
+		 display: inline-block;
+		 max-width: 100%;
+	 }
+ }
 }

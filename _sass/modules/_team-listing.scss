@@ -93,6 +93,9 @@ $team-listing-module-column-size: $grid-columns;
 				background-size: contain;
 				z-index: 3;
 				clip-path: inset(7% 10% 33%);
+				@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+					display: none;
+				}
 			}
 			&__fade {
 				position: absolute;
@@ -100,7 +103,7 @@ $team-listing-module-column-size: $grid-columns;
 				bottom: 0;
 				left: 0;
 				right: 0;
-				background-image: linear-gradient(0deg, $color-primary, transparent);
+				background-image: linear-gradient(0deg, rgba($color-primary, 1), rgba($color-primary, 0));
 				}
 		}
 		.profile-container {
@@ -131,6 +134,15 @@ $team-listing-module-column-size: $grid-columns;
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: cover;
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					left: 0;
+					height: 350px;
+					background-image: linear-gradient(to top, rgba($color-primary,1),rgba($color-primary,0));
+				}
 			}
 		}
 		.details__container {
@@ -147,7 +159,7 @@ $team-listing-module-column-size: $grid-columns;
 				}
 				tr {
 					padding-bottom: 1em;
-					vertical-align: text-top;
+					vertical-align: top;
 					@media screen and (max-width: 767px){
 						display: block;
 					}

@@ -402,3 +402,8 @@
 	padding-left: 0;
 	padding-right: 0;
 }
+@media screen and (min-width: 992px){
+	.icon-grid-module.icon-column-count-3 .icon-grid .icon-grid-item {
+		max-width: 33.33334%;
+	}
+}

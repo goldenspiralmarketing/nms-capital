@@ -58,6 +58,7 @@
 		}
 		&__content {
 			flex-grow: 1;
+			width: 100%;
 			p:not([class]) {
 				@media screen and (min-width: 992px) {
 					font-size: 20px;
@@ -67,6 +68,9 @@
 		&__button {
 			align-self: center;
 			transform: translateY(50%);
+		}
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+     flex: 0 0 50%;
 		}
 	}
 	&:not(.inverted) {

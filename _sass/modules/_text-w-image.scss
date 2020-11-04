@@ -154,6 +154,9 @@ $text-w-image-module-column-size: $grid-columns;
 
 			padding-left: 0;
 			padding-right: 0;
+			.wysiwyg {
+				width: 100%;
+			}
 
 			@media screen and (min-width: 768px) {
 				// max-width: cols-to-width-percent($grid-columns * 0.65, $grid-columns) * 1%;
