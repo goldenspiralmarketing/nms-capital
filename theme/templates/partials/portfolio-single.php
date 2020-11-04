@@ -50,7 +50,8 @@ $slug = $post->post_name;
 						<?php the_field('portfolio_location'); ?>
 					</div>
 					<div class="website">
-						<a href="<?php the_field('portfolio_website'); ?>">
+						<?php $website = get_field('portfolio_website'); ?>
+						<a href="<?php echo $website; ?>">
 							<?php the_field('portfolio_website'); ?>
 						</a>
 					</div>
