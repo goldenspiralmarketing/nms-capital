@@ -88,7 +88,7 @@ if(get_field('footer_background_image', 'options')){
 				<a href="<?php echo $overview; ?>" target="_blank">Our Overview</a> •
 				<?php endif; ?>
 				<a href="/privacy-policy/">Privacy Policy</a> •
-				<a href="/terms-of-service/">Terms of Use</a> •
+				<a href="/terms-of-use/">Terms of Use</a> •
 				<?php
 				$url = '';
 				if(get_field('partner_login_url', 'options')):

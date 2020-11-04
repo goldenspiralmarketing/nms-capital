@@ -1,11 +1,35 @@
 
 			</div><!-- /.wrapper -->
 		</div><!-- /#barba-wrapper -->
-		<?php if(get_field('show_subfooter_ctas')): ?>
+		<?php /*
+		global $wp_query;
+			$query =  $wp_query; // by default, set to current query
+			$query_reset = false; //toggle to use later
+			if(is_home()){ // this returns true when on the main posts page
+				$page_for_posts_id = get_option( 'page_for_posts' );
+				$page_slug = get_post_field( 'post_name', $page_for_posts_id );
+				$query = new WP_Query( array('pagename' => $page_slug ));
+				$query_reset = true;
+			}
+			echo '<script>';
+			echo 'console.log(\''.  $query_reset  .'\');';
+			echo 'console.log(\''.  $page_for_posts_id .'\');';
+			echo 'console.log(\''.  $page_slug .'\');';
+			echo '</script>';
+			while ( $query->have_posts() ) : $query->the_post();
+			echo '<script>console.log(\'in the loop \');</script>';
+			if(get_field('show_subfooter_ctas')):
+				echo '<script>console.log(\'in the subfooter \');</script>';
+		*/ ?>
 			<?php include('templates/modules/sub-footer-ctas.php') ?>
-		<?php endif; ?>
+		<?php /*
+			endif;
+			endwhile;
+			if($query_reset){
+				wp_reset_postdata();
+			}
+	*/	?>
 		<?php get_template_part( 'templates/navigation/nav', 'footer' ); ?>
-
 		<?php wp_footer(); ?>
 
 		<!-- Typekit -->
