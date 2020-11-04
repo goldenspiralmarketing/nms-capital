@@ -5,6 +5,9 @@
 		padding-top: 4em;
 		padding-bottom: 4em;
 	}
+	@media screen and (max-width: 767px){
+		padding-bottom: 2em;
+	}
 	.gs-module-column {
 		@media screen and (min-width: 992px){
 			display: flex;

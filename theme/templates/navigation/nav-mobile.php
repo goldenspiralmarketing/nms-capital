@@ -1,4 +1,10 @@
-<div class="mobile-menu">
+<?php
+$mobile_bg ='';
+if (get_field('mobile_menu_background', 'options')){
+	$mobile_bg = get_field('mobile_menu_background', 'options')['sizes']['team'];
+}
+ ?>
+<div class="mobile-menu bg-color-primary" style="background-image: url('<?=$mobile_bg?>'); background-repeat: no-repeat; background-position: center; background-size: cover;">
 
 		<nav class="nav-mobile">
 			<?php

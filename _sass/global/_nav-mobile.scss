@@ -20,6 +20,17 @@ $navHeight: 50; // change this to the height of the mobile nav, for menu offset
 		height: auto;
 	}
 
+	// &:after {
+	// 	content: '';
+	// 	position: absolute;
+	// 	bottom: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// 	height: 50vh;
+	// 	background-image: linear-gradient(to top, rgba($color-secondary,1), rgba($color-secondary, 0));
+	// 	z-index: 1;
+	// }
+
 	@media screen and (min-width: $mobile-nav-max-width) {
 		display: none;
 	}
@@ -30,21 +41,28 @@ $navHeight: 50; // change this to the height of the mobile nav, for menu offset
 		margin-top:1em;
 		padding-left:2em;
 		padding-right:2em;
+		z-index: 3;
 		> ul {
 			list-style: none;
+			padding-left: 0;
 			> li {
 				// border-top:1px solid $gray-800;
 				padding:0.5em 0;
 				&:last-child {
-					border-bottom:1px solid $gray-800;
+					// border-bottom:1px solid $gray-800;
+					padding-bottom: 200px;
 				}
 				> a {
 					display:block;
 					text-decoration:none;
-					padding: 1em;
+					padding: 1em 0.5em;
 					margin:0;
 					font-weight:bold;
-					@extend .s5 !optional;
+					@extend .s3 !optional;
+					color: $grayscale-white;
+				}
+				&.text-color-tertiary > a {
+					color: $color-tertiary;
 				}
 				ul.sub-menu {
 					list-style: none;
