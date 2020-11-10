@@ -202,6 +202,28 @@ define( 'global', // module name
 			}
 		}
 
+		function customPostNav() {
+			if (_pageIsReady) {
+				if ($('.categories-nav').length) {
+					var portfolios = $('.portfolio');
+					$('.categories-nav select').on('change', function(){
+						var taxonomy = $(this).attr('name');
+						var selected = $(this).val();
+						customPostFiltering(taxonomy,selected);
+					});
+				}
+			}
+		}
+		function customPostFiltering(taxonomy,selected) {
+			var toFilter = $('.filterable');
+			var attribute = 'data-' + taxonomy;
+			var toShow = $('.filterable['+ attribute + '=' + selected +']');
+			var toHide = $('.filterable['+ attribute + '!=' + selected +']');
+			toHide.fadeOut('fast');
+			toShow.fadeIn('fast');
+			toShow.attr('data-selected', selected);
+		}
+
 
 		function createSVGNodes() {
 			var d = $.Deferred();
@@ -596,6 +618,7 @@ define( 'global', // module name
 				load_hsforms( cb );
 			},
 			url_params: urlParams,
+			custom_post_nav: customPostNav,
 			svg_draw: svgDraw,
 			scroll_trigger: scrollTrigger,
 			// animate_load_in: animateLoadIn,

@@ -6,8 +6,28 @@ if(get_field('team_member_profile_background_image', 'options')){
 $title = get_the_title();
 $slug = $post->post_name;
 ?>
+<?php
+$get_industries = get_the_terms( $post->ID , 'industry' );
+$get_years = get_the_terms( $post->ID , 'investment_year' );
+$get_statuses = get_the_terms( $post->ID , 'portfolio_status' );
+// get industry slugs only
+$industry_array = array();
+foreach ( $get_industries as $get_industry) {
+	$industry_array[] = $get_industry->slug;
+}
+$industries = implode(' ', $industry_array);
 
-<div class="portfolio">
+
+// get years slugs only
+$status_array = array();
+foreach ( $get_statuses as $get_status) {
+	$status_array[] = $get_status->slug;
+}
+$statuses = implode(' ', $status_array);
+
+
+ ?>
+<div class="portfolio filterable active" data-industry="<?php echo $industries; ?>" data-status="<?php echo $statuses; ?>">
 	<div class="portfolio__container">
 		<div class="portfolio__image">
 			<?php
@@ -18,10 +38,10 @@ $slug = $post->post_name;
 			<div class="portfolio__image__hover absolute-fill" style="background-image: url('<?=$original_image?>');"></div>
 		</div>
 		<div class="portfolio__title">
+			<div class="portfolio-name"><?php the_title(); ?></div>
 			<div class="portfolio-location">
 				<?php the_field('portfolio_location'); ?>
 			</div>
-			<div class="portfolio-name"><?php the_title(); ?></div>
 			<div class="learn-more text-right">
 				Learn More »
 			</div>

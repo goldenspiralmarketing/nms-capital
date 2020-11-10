@@ -6,12 +6,11 @@
 		<div class="category-title">
 			Industry:
 		</div>
-		<select class="industry-dropdown" name="industry-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-			<option>Select</option>
-			<option value="/portfolio/">All</option>
+		<select class="industry-dropdown" name="industry" onchange="">
+			<option value="all">All</option>
 			<?php $industries = get_terms('industry'); ?>
 			<?php foreach($industries as $industry): ?>
-				<option value="/industry/<?=$industry->slug?>"><?=$industry->name?></option>
+				<option value="<?=$industry->slug?>"><?=$industry->name?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>
@@ -34,12 +33,11 @@
 		<div class="category-title">
 			Status:
 		</div>
-		<select class="status-dropdown" name="status-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-			<option>Select</option>
-			<option value="/portfolio/">All</option>
+		<select class="status-dropdown" name="status" onchange="">
+			<option value="all">All</option>
 			<?php $statuses = get_terms('portfolio_status'); ?>
 			<?php foreach($statuses as $status): ?>
-				<option value="/portfolio_status/<?=$status->slug?>"><?=$status->name?></option>
+				<option value="<?=$status->slug?>"><?=$status->name?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>
