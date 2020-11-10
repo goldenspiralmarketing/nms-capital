@@ -68,6 +68,7 @@ define( 'main', // module name
 
 			if ( st > lst && st > 0 ) {
 				$( 'body' ).addClass( 'scrolled' );
+				// $('header.site-header .header-full').removeClass('open');
 			} else {
 				$( 'body' ).removeClass( 'scrolled' );
 			}

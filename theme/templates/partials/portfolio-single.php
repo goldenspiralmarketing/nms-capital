@@ -34,7 +34,7 @@ $slug = $post->post_name;
 		<span>Close</span> <span class="symbol text-color-tertiary">-</span>
 	</div>
 	<div class="portfolio-popup__banner">
-		<div class="portfolio-popup__banner__image absolute-fill bg-image bg-image-preload" style="background-image: url('<?=$original_image?>');"></div>
+		<div class="portfolio-popup__banner__image absolute-fill bg-image" style="background-image: url('<?=$original_image?>');"></div>
 	</div>
 	<div class="portfolio-popup__container bg-color-primary text-grayscale-white">
 		<div class="portfolio-popup__profile portfolio-popup__half">
