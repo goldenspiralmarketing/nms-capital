@@ -25,7 +25,7 @@
 
 				<div class="gs-module-column"><!-- column -->
 					<?php get_template_part( 'templates/navigation/portfolio-nav'); ?>
-					<div class="portfolio-listing-container">
+					<div class="portfolio-listing-container filterable-container">
 						<?php
 
 						 $args = array(
@@ -42,6 +42,14 @@
 							<?php get_template_part( 'templates/partials/portfolio-single' ); ?>
 					<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
 					<?php wp_reset_query(); ?>
+					</div>
+					<div class="filterable-error pt-5 pb-5">
+						<div class="s2 text-center">
+							No Results Found
+						</div>
+						<div class="large text-center">
+							Try different keyworks or remove search filters
+						</div>
 					</div>
 				</div><!-- column -->
 

@@ -205,24 +205,62 @@ define( 'global', // module name
 		function customPostNav() {
 			if (_pageIsReady) {
 				if ($('.categories-nav').length) {
-					var portfolios = $('.portfolio');
 					$('.categories-nav select').on('change', function(){
-						var taxonomy = $(this).attr('name');
-						var selected = $(this).val();
-						customPostFiltering(taxonomy,selected);
+						var filters = [];
+						$('.categories-nav').find('select').each(function(i,e) {
+							var taxonomy = $(this).attr('name');
+							var selected = $(this).val();
+							if (selected === 'all') {
+								// do nothing
+								$(this).removeClass('active');
+							} else {
+								$(this).addClass('active');
+								filters.push(selected);
+							}
+						});
+						postFilteringError(false);
+						customPostFiltering(filters);
 					});
 				}
 			}
 		}
-		function customPostFiltering(taxonomy,selected) {
-			var toFilter = $('.filterable');
-			var attribute = 'data-' + taxonomy;
-			var toShow = $('.filterable['+ attribute + '=' + selected +']');
-			var toHide = $('.filterable['+ attribute + '!=' + selected +']');
-			toHide.fadeOut('fast');
-			toShow.fadeIn('fast');
-			toShow.attr('data-selected', selected);
+		function customPostFiltering(filters) {
+			var filterTerms = filters;
+			if (filterTerms.length !== 0) {
+				$('.filterable').hide();
+				$('.filterable').removeClass('active');
+				$('.filterable').each(function(i, e) {
+					var thisObject = $(this);
+					var objectAttributes = thisObject.attr('data-filters');
+					var termsLength = filterTerms.length;
+					var loop = 0;
+					$.each(filterTerms, function(i, e) {
+						if (objectAttributes.includes(this)) {
+							loop+= 1;
+						}
+					});
+					if (loop === termsLength) {
+						$(this).fadeIn();
+						$(this).addClass('active');
+					}
+				});
+			} else {
+				$('.filterable').show();
+				$('.filterable').addClass('active');
+			}
+			if ($('.filterable.active').length === 0) {
+				postFilteringError(true);
+			}
 		}
+
+		function postFilteringError(boolean) {
+			if (boolean) {
+				$('.filterable-error').fadeIn();
+			} else {
+				$('.filterable-error').hide();
+			}
+		}
+
 
 
 		function createSVGNodes() {

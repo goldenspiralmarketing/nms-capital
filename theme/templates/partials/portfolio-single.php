@@ -10,7 +10,7 @@ $slug = $post->post_name;
 $get_industries = get_the_terms( $post->ID , 'industry' );
 $get_years = get_the_terms( $post->ID , 'investment_year' );
 $get_statuses = get_the_terms( $post->ID , 'portfolio_status' );
-// get industry slugs only
+
 $industry_array = array();
 foreach ( $get_industries as $get_industry) {
 	$industry_array[] = $get_industry->slug;
@@ -18,7 +18,6 @@ foreach ( $get_industries as $get_industry) {
 $industries = implode(' ', $industry_array);
 
 
-// get years slugs only
 $status_array = array();
 foreach ( $get_statuses as $get_status) {
 	$status_array[] = $get_status->slug;
@@ -27,7 +26,7 @@ $statuses = implode(' ', $status_array);
 
 
  ?>
-<div class="portfolio filterable active" data-industry="<?php echo $industries; ?>" data-status="<?php echo $statuses; ?>">
+<div class="portfolio filterable active" data-filters="<?php echo $industries; ?> <?php echo $statuses; ?>">
 	<div class="portfolio__container">
 		<div class="portfolio__image">
 			<?php
