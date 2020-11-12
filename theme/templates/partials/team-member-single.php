@@ -3,9 +3,33 @@ $details_background = '';
 if(get_field('team_member_profile_background_image', 'options')){
 	$details_background = get_field('team_member_profile_background_image', 'options');
 }
+
+$get_locations = get_the_terms( $post->ID , 'location' );
+$get_roles = get_the_terms( $post->ID , 'role' );
+$get_titles = get_the_terms( $post->ID , 'member_title' );
+
+$location_array = array();
+foreach ( $get_locations as $get_location) {
+	$location_array[] = $get_location->slug;
+}
+$locations = implode(' ', $location_array);
+
+
+$role_array = array();
+foreach ( $get_roles as $get_role) {
+	$role_array[] = $get_role->slug;
+}
+$roles = implode(' ', $role_array);
+
+
+$title_array = array();
+foreach ( $get_titles as $get_title) {
+	$title_array[] = $get_title->slug;
+}
+$titles = implode(' ', $title_array);
 ?>
 
-<div class="team-member">
+<div class="team-member filterable" data-filters="<?php echo $locations; ?> <?php echo $roles; ?> <?php echo $titles; ?>">
 	<div class="team-member__container">
 		<div class="team-member__image bg-color-primary">
 			<?php

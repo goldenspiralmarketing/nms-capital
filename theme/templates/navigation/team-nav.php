@@ -2,43 +2,50 @@
 	<div class="categories-nav__title">
 		Filter
 	</div>
+	<?php
+	// hiding this one for now
+	/*
+	?>
 	<div class="portfolio-nav__industry categories-nav__single">
 		<div class="category-title">
 			Location:
 		</div>
-		<select class="industry-dropdown" name="industry-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-			<option>Select</option>
-			<option value="/team/">All</option>
+		<select class="location-dropdown" name="location" onchange="">
+			<option value="all">All</option>
 			<?php $locations = get_terms('location'); ?>
 			<?php foreach($locations as $location): ?>
-				<option value="/location/<?=$location->slug?>"><?=$location->name?></option>
+				<option value="<?=$location->slug?>"><?=$location->name?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php */ ?>
 	<div class="portfolio-nav__fund categories-nav__single">
 		<div class="category-title">
 			Role:
 		</div>
-		<select class="fund-dropdown" name="fund-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-			<option>Select</option>
-			<option value="/role/">All</option>
+		<select class="role-dropdown" name="role" onchange="">
+			<option value="all">All</option>
 			<?php $roles = get_terms('role'); ?>
 			<?php foreach($roles as $role): ?>
-				<option value="/role/<?=$role->slug?>"><?=$role->name?></option>
+				<option value="<?=$role->slug?>"><?=$role->name?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php
+	// hiding this one for now
+	/*
+	 ?>
 	<div class="portfolio-nav__status categories-nav__single">
 		<div class="category-title">
 			Title:
 		</div>
-		<select class="status-dropdown" name="status-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-			<option>Select</option>
-			<option value="/title/">All</option>
+		<select class="title-dropdown" name="title" onchange="">
+			<option value="all">All</option>
 			<?php $titles = get_terms('member_title'); ?>
 			<?php foreach($titles as $title): ?>
-				<option value="/member_title/<?=$title->slug?>"><?=$title->name?></option>
+				<option value="<?=$title->slug?>"><?=$title->name?></option>
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php */ ?>
 </div>

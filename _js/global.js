@@ -202,6 +202,66 @@ define( 'global', // module name
 			}
 		}
 
+		function customPostNav() {
+			if (_pageIsReady) {
+				if ($('.categories-nav').length) {
+					$('.categories-nav select').on('change', function(){
+						var filters = [];
+						$('.categories-nav').find('select').each(function(i,e) {
+							var taxonomy = $(this).attr('name');
+							var selected = $(this).val();
+							if (selected === 'all') {
+								// do nothing
+								$(this).removeClass('active');
+							} else {
+								$(this).addClass('active');
+								filters.push(selected);
+							}
+						});
+						postFilteringError(false);
+						customPostFiltering(filters);
+					});
+				}
+			}
+		}
+		function customPostFiltering(filters) {
+			var filterTerms = filters;
+			if (filterTerms.length !== 0) {
+				$('.filterable').hide();
+				$('.filterable').removeClass('active');
+				$('.filterable').each(function(i, e) {
+					var thisObject = $(this);
+					var objectAttributes = thisObject.attr('data-filters');
+					var termsLength = filterTerms.length;
+					var loop = 0;
+					$.each(filterTerms, function(i, e) {
+						if (objectAttributes.includes(this)) {
+							loop+= 1;
+						}
+					});
+					if (loop === termsLength) {
+						$(this).fadeIn();
+						$(this).addClass('active');
+					}
+				});
+			} else {
+				$('.filterable').show();
+				$('.filterable').addClass('active');
+			}
+			if ($('.filterable.active').length === 0) {
+				postFilteringError(true);
+			}
+		}
+
+		function postFilteringError(boolean) {
+			if (boolean) {
+				$('.filterable-error').fadeIn();
+			} else {
+				$('.filterable-error').hide();
+			}
+		}
+
+
 
 		function createSVGNodes() {
 			var d = $.Deferred();
@@ -596,6 +656,7 @@ define( 'global', // module name
 				load_hsforms( cb );
 			},
 			url_params: urlParams,
+			custom_post_nav: customPostNav,
 			svg_draw: svgDraw,
 			scroll_trigger: scrollTrigger,
 			// animate_load_in: animateLoadIn,

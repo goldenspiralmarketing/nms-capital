@@ -19,10 +19,18 @@
 			text-transform: uppercase;
 		}
 		select {
-			width: 120px;
-			border: 0;
+			width: 150px;
+			border: 1px solid transparent;
 			box-shadow: 0px 0px 7px -1px rgba(0,0,0,.2);
 			text-transform: uppercase;
+			&.active {
+				border: 1px solid $color-tertiary;
+				color: $color-tertiary;
+			}
 		}
 	}
+}
+
+.filterable-error {
+	display: none;
 }
