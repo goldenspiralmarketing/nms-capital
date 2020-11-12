@@ -2,6 +2,10 @@
 	<div class="categories-nav__title">
 		Filter
 	</div>
+	<?php
+	// hiding this one for now
+	/*
+	?>
 	<div class="portfolio-nav__industry categories-nav__single">
 		<div class="category-title">
 			Location:
@@ -14,6 +18,7 @@
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php */ ?>
 	<div class="portfolio-nav__fund categories-nav__single">
 		<div class="category-title">
 			Role:
@@ -26,6 +31,10 @@
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php
+	// hiding this one for now
+	/*
+	 ?>
 	<div class="portfolio-nav__status categories-nav__single">
 		<div class="category-title">
 			Title:
@@ -38,4 +47,5 @@
 			<?php endforeach; ?>
 		</select>
 	</div>
+	<?php */ ?>
 </div>
