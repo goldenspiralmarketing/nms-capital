@@ -95,8 +95,23 @@
 		text-transform: uppercase;
 		a {
 			color: $color-accent;
+			&[aria-current] {
+				color: $color-accent;
+				font-weight: 900;
+				padding-left: 0.5em;
+				border-left: 5px solid $color-tertiary;
+			}
 		}
 		li {
 			margin-bottom: 0.25rem;
 		}
+}
+.archive .taxonomy-list {
+	a:not([aria-current]) {
+		opacity: .65;
+		color: $color-primary;
+		&:hover {
+			opacity: 1;
+		}
+	}
 }
