@@ -152,8 +152,8 @@ $titles = implode(' ', $title_array);
 							<?php
 							$portfolio = get_field('team_member_portfolio');
 							if( $portfolio ): ?>
-							<td>Current Portfolio:</td>
-							<td>
+							<td class="pt-3">Current Portfolio:</td>
+							<td class="pt-3">
 									<?php if(have_rows('team_member_portfolio')): ?>
 										<ul>
 										<?php while (have_rows('team_member_portfolio')): the_row();
@@ -165,6 +165,31 @@ $titles = implode(' ', $title_array);
 										$portfolio_title = get_the_title($portfolio->ID);
 										$portfolio_slug = $portfolio->post_name; ?>
 										<li><a href="/portfolio?n=<?=$portfolio_slug?>"><?=$portfolio_title?></a></li>
+									<?php endif; ?>
+
+								<?php endwhile; ?>
+									</ul>
+								<?php endif; ?>
+						</td>
+					<?php endif; ?>
+					</tr>
+						<tr>
+							<?php
+							$portfolio_prior = get_field('team_member_portfolio_prior');
+							if( $portfolio_prior ): ?>
+							<td class="pt-3">Prior Portfolio:</td>
+							<td class="pt-3">
+									<?php if(have_rows('team_member_portfolio_prior')): ?>
+										<ul>
+										<?php while (have_rows('team_member_portfolio_prior')): the_row();
+										?>
+										<?php
+										$portfolio_prior = get_sub_field('portfolio');
+										if( $portfolio_prior ): ?>
+										<?php
+										$portfolio_prior_title = get_the_title($portfolio_prior->ID);
+										$portfolio_prior_slug = $portfolio_prior->post_name; ?>
+										<li><a href="/portfolio?n=<?=$portfolio_prior_slug?>"><?=$portfolio_prior_title?></a></li>
 									<?php endif; ?>
 
 								<?php endwhile; ?>
