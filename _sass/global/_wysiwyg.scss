@@ -131,7 +131,7 @@ a {
 .wysiwyg a {
 	font-family: $font-tertiary;
 	color: $color-tertiary;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 	&:hover {
 		color: $color-primary;
 	}

@@ -12,6 +12,14 @@
 		</div>
 		<?php endif; ?>
 		<div class="nav-upper">
+			<div class="partner-link">
+				<?php
+				if(get_field('partner_login_url', 'options')):
+					$url = get_field('partner_login_url', 'options');
+				 ?>
+				<a href="<?=$url?>" target="_blank" class="text-color-accent">Partner Login</a>
+				<?php endif; ?>
+			</div>
 			<div class="menu-trigger">
 				<span class="text-grayscale-white">Menu</span> <span class="text-color-accent">+</span>
 			</div>

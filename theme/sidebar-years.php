@@ -13,7 +13,7 @@
 
 ?>
 
-	<aside class="taxonomy-sidebar">
+	<aside class="taxonomy-sidebar sticky">
 		<h5>Year</h5>
 		<ul class="taxonomy-list">
 			<li>

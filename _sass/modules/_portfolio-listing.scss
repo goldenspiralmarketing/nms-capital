@@ -111,7 +111,7 @@
 			margin-top: 2em;
 			> * {
 				margin-bottom: 0.5em;
-				color: $color-tertiary;
+				color: $grayscale-white;
 				a {
 					color: $color-tertiary;
 					&:hover {
@@ -154,7 +154,7 @@
 			a {
 				color: $color-tertiary;
 				font-family: $font-tertiary;
-				text-transform: uppercase;
+				// text-transform: uppercase;
 				&:hover {
 					color: $grayscale-white;
 				}
@@ -167,7 +167,7 @@
 				flex-shrink: 0;
 			}
 			div:last-of-type {
-				color: $color-tertiary;
+				color: $grayscale-primary;
 			}
 			ul {
 				list-style: none;

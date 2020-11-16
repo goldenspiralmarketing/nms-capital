@@ -35,7 +35,7 @@
 						</div>
 					<?php endif; ?>
 
-					<?php $slick_settings = '{"autoplay": false, "slidesToShow": 1, "slidesToScroll": 1, "dots": true, "arrows": false, "autoplaySpeed": 5000, "speed": 1500}'; ?>
+					<?php $slick_settings = '{"autoplay": true, "slidesToShow": 1, "slidesToScroll": 1, "dots": true, "arrows": false, "autoplaySpeed": 5000, "speed": 1500}'; ?>
 					<div class="slide-container slick <?php echo $slides_classes; ?>" data-slick='<?php echo $slick_settings; ?>'>
 
 						<?php if ( have_rows( 'testimonial_testimonials' ) ) : ?>

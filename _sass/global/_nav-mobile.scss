@@ -17,7 +17,7 @@ $navHeight: 50; // change this to the height of the mobile nav, for menu offset
 	z-index:95;
 	@media screen and (min-width: 768px) {
 		overflow: auto;
-		height: auto;
+		// height: auto;
 	}
 
 	// &:after {

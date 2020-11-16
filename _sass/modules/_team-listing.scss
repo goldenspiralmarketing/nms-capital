@@ -148,7 +148,7 @@ $team-listing-module-column-size: $grid-columns;
 		.details__container {
 			position: relative;
 			z-index: 2;
-			padding: 3.5em;
+			padding: 2.5em;
 			@media screen and (max-width: 767px) {
 				padding: 2.5rem 1.5rem;
 			}
@@ -173,7 +173,7 @@ $team-listing-module-column-size: $grid-columns;
 						}
 					}
 					td:last-of-type {
-						color: $color-tertiary;
+						color: $grayscale-primary;
 						ul {
 							list-style: none;
 							padding: 0;
@@ -191,6 +191,7 @@ $team-listing-module-column-size: $grid-columns;
 							color: $color-tertiary;
 							margin: 0;
 							@extend .s5;
+							text-transform: none;
 							display: inline;
 							&:hover {
 								color: $grayscale-white;
@@ -200,6 +201,11 @@ $team-listing-module-column-size: $grid-columns;
 					td {
 						@media screen and (max-width: 767px){
 							display: block;
+						}
+					}
+					&:last-of-type {
+						td {
+							padding-top: 1em;
 						}
 					}
 				}

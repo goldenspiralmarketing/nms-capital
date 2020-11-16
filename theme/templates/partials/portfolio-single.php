@@ -64,18 +64,24 @@ $statuses = implode(' ', $status_array);
 				<div class="profile-content">
 					<?php the_content(); ?>
 				</div>
-				<div class="profile-overview text-color-tertiary">
+				<div class="profile-overview text-grayscale-white">
+					<div class="attribution">
+						<?php the_field('portfolio_attribution'); ?>
+					</div>
 					<div class="location">
 						<?php the_field('portfolio_location'); ?>
 					</div>
 					<div class="website">
-						<?php $website = get_field('portfolio_website'); ?>
-						<a href="<?php echo $website; ?>">
-							<?php the_field('portfolio_website'); ?>
+						<?php
+						$url = get_field('portfolio_website');
+						$to_remove = array('https://', "http://");
+						$website = str_replace($to_remove, "", $url);
+						$website = rtrim($website, '/');
+						 ?>
+
+						<a href="<?php echo $url; ?>" target="_blank">
+							<?php echo $website; ?>
 						</a>
-					</div>
-					<div class="attribution">
-						<?php the_field('portfolio_attribution'); ?>
 					</div>
 				</div>
 			</div>

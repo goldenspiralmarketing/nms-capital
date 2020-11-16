@@ -162,15 +162,18 @@
 }
 #strategy-cards {
 	.gs-module-container {
-		max-width: 1650px;
+		// max-width: 1650px;
 	}
-	@media screen and (min-width: 1201px) and (max-width: 1440px){
-		.card-content {
-			padding: calc(2rem + 2vw);
-		}
-	}
+	// @media screen and (min-width: 1201px) and (max-width: 1440px){
+	// 	.card-content {
+	// 		padding: calc(2rem + 2vw);
+	// 	}
+	// }
 	.card-content {
-		padding: 4em;
+		padding: 3em;
+		@media screen and (min-width: 768px) and (max-width: 1400px){
+			padding: 2.5em;
+		}
 		@media screen and (max-width: 767px) {
 			padding: 3em 2em;
 		}
@@ -178,7 +181,7 @@
 			color: $color-tertiary;
 		}
 	}
-	@media screen and (min-width: 992px) and (max-width: 1200px) {
+	@media screen and (min-width: 992px) and (max-width: 1400px) {
 		.card-content {
 			padding: 2em;
 		}

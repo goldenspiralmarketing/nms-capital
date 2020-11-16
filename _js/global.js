@@ -522,7 +522,7 @@ define( 'global', // module name
 
 			sticky_kit: function() {
 				// if ( $( '.sticky' ).length ) _sticky_check();
-				if ( $( '.sticky' ).length ) create_stickyness( '.sticky', 'main', $( 'header').outerHeight() );
+				if ( $( '.sticky' ).length ) create_stickyness( '.sticky', 'main', 120 );
 			},
 
 			stick: function( sticky_el, parent_el, offset_top_amt ) {
