@@ -92,129 +92,135 @@ $statuses = implode(' ', $status_array);
 				<div class="details-background__fade"></div>
 			</div>
 			<div class="portfolio-popup__details__container">
-				<div class="details-single">
-					<div class="">
-						Industry:
-					</div>
-					<div class="">
+				<table>
+					<tbody>
+						<tr class="details-single">
+							<td class="">
+								Industry:
+							</td>
+							<td class="">
+								<?php
+								$terms = get_the_terms( $post->ID , 'industry' );
+								$i = 1;
+								foreach ( $terms as $term ) {
+									echo $term->name;
+									echo ($i < count($terms))? ", " : "";
+									$i ++;
+								}
+								?>
+							</td>
+						</tr>
+						<tr class="details-single">
+							<td class="">
+								Investment Year:
+							</td>
+							<td class="">
+								<?php
+								$terms = get_the_terms( $post->ID , 'investment_year' );
+								$i = 1;
+								foreach ( $terms as $term ) {
+									echo $term->name;
+									echo ($i < count($terms))? ", " : "";
+									$i ++;
+								}
+								?>
+							</td>
+						</tr>
+						<tr class="details-single">
+							<td class="">
+								Fund:
+							</td>
+							<td class="">
+								<?php
+								$terms = get_the_terms( $post->ID , 'fund' );
+								$i = 1;
+								foreach ( $terms as $term ) {
+									echo $term->name;
+									echo ($i < count($terms))? ", " : "";
+									$i ++;
+								}
+								?>
+							</td>
+						</tr>
+						<tr class="details-single">
+							<td class="">
+								Status:
+							</td>
+							<td class="">
+								<?php
+								$terms = get_the_terms( $post->ID , 'portfolio_status' );
+								$i = 1;
+								foreach ( $terms as $term ) {
+									echo $term->name;
+									echo ($i < count($terms))? ", " : "";
+									$i ++;
+								}
+								?>
+							</td>
+						</tr>
+						<tr class="details-single">
+							<td class="">
+								NMS Deal Contact:
+							</td>
+							<td class="">
+								<ul class="">
+									<?php if(have_rows('portfolio_contact')):
+										while (have_rows('portfolio_contact')): the_row();
+										?>
+										<?php
+										$contact = get_sub_field('contact');
+										if( $contact ): ?>
+										<?php
+										$contact_title = get_the_title($contact->ID);
+										$contact_slug = $contact->post_name; ?>
+										<li><a href="/team?n=<?=$contact_slug?>"><?=$contact_title?></a></li>
+									<?php endif; ?>
+								<?php endwhile; endif; ?>
+							</ul>
+						</td>
+					</tr>
+					<?php if(get_field('portfolio_in_the_news')): ?>
 						<?php
-						$terms = get_the_terms( $post->ID , 'industry' );
-						$i = 1;
-						foreach ( $terms as $term ) {
-							echo $term->name;
-							echo ($i < count($terms))? ", " : "";
-							$i ++;
-						}
-						?>
-					</div>
-				</div>
-				<div class="details-single">
-					<div class="">
-						Investment Year:
-					</div>
-					<div class="">
-						<?php
-						$terms = get_the_terms( $post->ID , 'investment_year' );
-						$i = 1;
-						foreach ( $terms as $term ) {
-							echo $term->name;
-							echo ($i < count($terms))? ", " : "";
-							$i ++;
-						}
-						?>
-					</div>
-				</div>
-				<div class="details-single">
-					<div class="">
-						Fund:
-					</div>
-					<div class="">
-						<?php
-						$terms = get_the_terms( $post->ID , 'fund' );
-						$i = 1;
-						foreach ( $terms as $term ) {
-							echo $term->name;
-							echo ($i < count($terms))? ", " : "";
-							$i ++;
-						}
-						?>
-					</div>
-				</div>
-				<div class="details-single">
-					<div class="">
-						Status:
-					</div>
-					<div class="">
-						<?php
-						$terms = get_the_terms( $post->ID , 'portfolio_status' );
-						$i = 1;
-						foreach ( $terms as $term ) {
-							echo $term->name;
-							echo ($i < count($terms))? ", " : "";
-							$i ++;
-						}
-						?>
-					</div>
-				</div>
-				<div class="details-single">
-					<div class="">
-						NMS Deal Contact:
-					</div>
-					<div class="">
-						<?php if(have_rows('portfolio_contact')):
-							while (have_rows('portfolio_contact')): the_row();
-							?>
-							<?php
-							$contact = get_sub_field('contact');
-							if( $contact ): ?>
-							<?php
-							$contact_title = get_the_title($contact->ID);
-							$contact_slug = $contact->post_name; ?>
-							<a href="/team?n=<?=$contact_slug?>"><?=$contact_title?></a>
-						<?php endif; ?>
-					<?php endwhile; endif; ?>
-				</div>
-			</div>
-			<?php if(get_field('portfolio_in_the_news')): ?>
-				<?php
-					$news_ids = get_field('portfolio_in_the_news');
-					$array = array();
-					foreach ($news_ids as $news_id) {
-						$array[] =  $news_id->slug;
-					}
-					$args = array(
-					// 'post_type' => 'any',
-					'posts_per_page'	=> 3,
-					 'orderby'			=> 'date',
-					 'order'				=> 'DESC',
-					 // 'tag__in'			=> 'array(\'' . $single . '\')'
-					 'tag' => $array
-					);
-					$the_query = new WP_Query( $args );
-					// print_r($the_query);
+							$news_ids = get_field('portfolio_in_the_news');
+							$array = array();
+							foreach ($news_ids as $news_id) {
+								$array[] =  $news_id->slug;
+							}
+							$args = array(
+							// 'post_type' => 'any',
+							'posts_per_page'	=> 3,
+							 'orderby'			=> 'date',
+							 'order'				=> 'DESC',
+							 // 'tag__in'			=> 'array(\'' . $single . '\')'
+							 'tag' => $array
+							);
+							$the_query = new WP_Query( $args );
+							// print_r($the_query);
 
-				 ?>
-				 <?php if ( $the_query->have_posts() ): ?>
-			<div class="details-single">
-				<div class="">
-					In The News:
-				</div>
-				<div class="">
-					<ul class="news-links">
-						<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-							<li class="news-links__single">
-								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-							</li>
-						<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
-							<?php wp_reset_query(); ?>
-							<li class="news-links__single mt-3">
-								<a href="/tag/<?=$array[0]?>">More News »</a>
-							</li>
-						</ul>
-				</div>
-			</div>
-			<?php endif; ?>
-			<?php endif; ?>
+						 ?>
+						 <?php if ( $the_query->have_posts() ): ?>
+					<tr class="details-single">
+						<td class="">
+							In The News:
+						</td>
+						<td class="">
+							<ul class="news-links">
+								<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+									<li class="news-links__single">
+										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									</li>
+								<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
+									<?php wp_reset_query(); ?>
+									<li class="news-links__single mt-3">
+										<a href="/tag/<?=$array[0]?>">More News »</a>
+									</li>
+								</ul>
+						</td>
+					</tr>
+					<?php endif; ?>
+					<?php endif; ?>
+					</tbody>
+				</table>
 		</div>
 	</div>
 </div>

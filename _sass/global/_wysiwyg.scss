@@ -49,6 +49,9 @@ h2 {
 .h2 {
 	line-height:1.5;
 }
+h1.emphasis {
+	text-transform: none;
+}
 
 // subheaders
 .s1, .s2, .s3, .s4, .s5 {
@@ -252,5 +255,16 @@ body.wp-autoresize {
 .text-dynamic {
 	@media screen and (min-width: $mobile-nav-max-width) and (max-width: #{$max-column-width}px){
 
+	}
+}
+
+.wysiwyg {
+	table {
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+	table, th, td {
+	  border: 2px solid $color-primary;
+		padding: 10px;
 	}
 }

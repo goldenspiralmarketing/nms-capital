@@ -5,3 +5,16 @@ body.home {
 		}
 	}
 }
+
+// ***** Temporary Fixes Until New Homepage Image is approved ******
+.layered-module .layered-image__foreground {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+.layered-module .layered-image .floating-text--left {
+	display: none;
+}
+.layered-module .layered-image .floating-text--right {
+	display: none;
+}
