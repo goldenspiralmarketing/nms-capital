@@ -104,6 +104,7 @@ $titles = implode(' ', $title_array);
 								?>
 							</td>
 						</tr>
+						<?php if(count(get_the_terms( $post->ID , 'role' )) > 0): ?>
 						<tr>
 							<td>Role:</td>
 							<td>
@@ -118,6 +119,8 @@ $titles = implode(' ', $title_array);
 								?>
 							</td>
 						</tr>
+						<?php endif; ?>
+						<?php if((get_the_terms( $post->ID , 'member_title' ))): ?>
 						<tr>
 							<td>Title:</td>
 							<td>
@@ -132,6 +135,8 @@ $titles = implode(' ', $title_array);
 								?>
 							</td>
 						</tr>
+						<?php endif; ?>
+						<?php if(get_field('team_member_phone') !== ''): ?>
 						<tr>
 							<td>Phone:</td>
 							<td>
@@ -140,6 +145,8 @@ $titles = implode(' ', $title_array);
 								</a>
 							</td>
 						</tr>
+						<?php endif; ?>
+						<?php if(get_field('team_member_email') !== ''): ?>
 						<tr>
 							<td>Email:</td>
 							<td>
@@ -148,6 +155,7 @@ $titles = implode(' ', $title_array);
 								</a>
 							</td>
 						</tr>
+						<?php endif; ?>
 						<tr>
 							<?php
 							$portfolio = get_field('team_member_portfolio');

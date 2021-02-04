@@ -229,6 +229,7 @@ define( 'global', // module name
 			if (filterTerms.length !== 0) {
 				$('.filterable').hide();
 				$('.filterable').removeClass('active');
+				$('.team-listing-container').removeClass('active');
 				$('.filterable').each(function(i, e) {
 					var thisObject = $(this);
 					var objectAttributes = thisObject.attr('data-filters');
@@ -242,11 +243,13 @@ define( 'global', // module name
 					if (loop === termsLength) {
 						$(this).fadeIn();
 						$(this).addClass('active');
+						$(this).closest('team-listing-container').addClass('active');
 					}
 				});
 			} else {
 				$('.filterable').show();
 				$('.filterable').addClass('active');
+				$('.team-listing-container').addClass('active');
 			}
 			if ($('.filterable.active').length === 0) {
 				postFilteringError(true);

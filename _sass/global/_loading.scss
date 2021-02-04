@@ -9,7 +9,7 @@
 }
 .bg-image-preload:not(.loaded) {
 	// default bg visual state before loading
-	opacity:0 !important;
+	// opacity:0 !important;
 }
 .image-preload.loaded, .bg-image-preload.loaded {
 	transition: all 0.5s ease; // apply transition for reveal animation

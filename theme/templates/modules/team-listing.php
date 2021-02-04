@@ -38,39 +38,83 @@
 
 				<div class="gs-module-column"><!-- column -->
 					<?php get_template_part( 'templates/navigation/team-nav'); ?>
-					<div class="team-listing-container">
-						<?php
+					<?php
 
-						 $args = array(
-						 'post_type' => 'team',
-						 'posts_per_page'	=> -1,
-							'meta_key'			=> 'team_member_last_name',
-							'orderby'			=> 'meta_value',
-							'order'				=> 'ASC'
-						 );
-						 $the_query = new WP_Query( $args );
+					$args = array(
+						'post_type' => 'team',
+						'posts_per_page'	=> -1,
+						'meta_key'			=> 'team_member_last_name',
+						'orderby'			=> 'meta_value',
+						'order'				=> 'ASC',
+						'tax_query'      => array(
+							array(
+								'taxonomy' => 'role',
+								'terms' => 'operating-executive-council',
+								'field' => 'slug',
+								'operator' => 'NOT IN'
+							)
+						)
+					);
+					$the_query = new WP_Query( $args );
 
-						?>
+					?>
 
-						<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-							<?php get_template_part( 'templates/partials/team-member-single' ); ?>
-					<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
+					<?php if ( $the_query->have_posts() ) : ?>
+						<div class="team-listing-container active">
+							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+								<?php get_template_part( 'templates/partials/team-member-single' ); ?>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
 					<?php wp_reset_query(); ?>
-					</div>
-					<div class="filterable-error pt-5 pb-5">
-						<div class="s2 text-center">
-							No Results Found
-						</div>
-						<div class="large text-center">
-							Try different keyworks or remove search filters
-						</div>
-					</div>
-				</div><!-- column -->
 
-			</div><!-- container -->
+					<?php
 
-		</section>
+					$args = array(
+						'post_type' => 'team',
+						'posts_per_page'	=> -1,
+						'meta_key'			=> 'team_member_last_name',
+						'orderby'			=> 'meta_value',
+						'order'				=> 'ASC',
+						'tax_query'      => array(
+							array(
+								'taxonomy' => 'role',
+								'terms' => 'operating-executive-council',
+								'field' => 'slug',
+								'operator' => 'IN'
+							)
+						)
+					);
+					$additional_query = new WP_Query( $args );
+
+					?>
+					<?php if ( $additional_query->have_posts() ) : ?>
+						<div class="team-listing-container team-listing-container--executive active">
+							<?php if(get_sub_field('team_divider_heading')): ?>
+								<div id="divider" class="executive-council-header wyswiyg">
+									<?php echo get_sub_field('team_divider_heading'); ?>
+								</div>
+							<?php endif; ?>
+							<?php while ( $additional_query->have_posts() ) : $additional_query->the_post(); ?>
+								<?php get_template_part( 'templates/partials/team-member-single' ); ?>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+					<?php wp_reset_query(); ?>
+						<div class="filterable-error pt-5 pb-5">
+							<div class="s2 text-center">
+								No Results Found
+							</div>
+							<div class="large text-center">
+								Try different keyworks or remove search filters
+							</div>
+						</div>
+					</div><!-- column -->
+
+				</div><!-- container -->
+
+			</section>
+
+		<?php endif; ?>
 
 	<?php endif; ?>
-
-<?php endif; ?>
